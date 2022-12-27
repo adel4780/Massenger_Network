@@ -17,50 +17,16 @@ class _SocketIoState extends State<SocketIoScreen> {
   late TextEditingController textcontroller;
   List<ChatModel> messages = [];
   late int userId;
-  late Socket socketIo;
-
   @override
   void initState() {
     // TODO: implement initState
     textcontroller = TextEditingController();
     messages.addAll(dummyData);
     userId = Random().nextInt(1000);
-    socketIo = SocketTOManager().createSocketIO("http://192.168.1.100:3000",'/',socketStatusCallback:socketStatus);
-    socketIo.init();
-    socketIo.sunscribe('messages',onReceiveNewMessage);
-    socketIo.connect();
   }
   @override
   void dispose(){
-    if(socketIo != null){
-      socketIo.destroy();
-    }
     super.dispose();
-  }
-  socketStatus(dynamic data){
-
-  }
-  onReceiveNewMessage(dynamic message){
-    Map<String,dynamic> msg = json.decode(message);
-    setState(() {
-      messages.add( ChatModel(
-          id : msg['id'],
-          name: '',
-          message : msg['message'],
-          time: '',
-          avatarUrl: '',
-      )
-      );
-    });
-  }
-  void sendChatMessage(String msg) {
-    if(socketIo != null){
-      Map<String,dynamic> jsonData = {
-        'id' : userId,
-        'message' : msg,
-      };
-      socketIo.sendMessage('send_message', json.encode(jsonData));
-    }
   }
   @override
   Widget build(BuildContext context) {
@@ -113,7 +79,6 @@ class _SocketIoState extends State<SocketIoScreen> {
                         if(!textcontroller.text.isEmpty){
                           String msg = textcontroller.text;
                           setState(() {
-                            sendChatMessage(msg);
                             messages.add(ChatModel(
                               id: userId,
                               name: '',
