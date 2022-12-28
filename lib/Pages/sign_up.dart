@@ -3,7 +3,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../Component/form.dart';
 import '../Component/form_sign_up.dart';
-import '../services/auth_services.dart';
 class SingUpScreen extends StatefulWidget {
   const SingUpScreen({Key? key}) : super(key: key);
 
@@ -23,7 +22,8 @@ class _SingUpScreenState extends State<SingUpScreen> {
     await prefs.setInt('user.user_id', userData['user_id']);
   }
   sendDataForLogin() async{
-    Map response = await (AuthService()).sendDataToLogin({"email": emailValue,"password": passwordValue});
+    Map response ={};
+    // Map response = await (AuthService()).sendDataToLogin({"email": emailValue,"password": passwordValue});
     if(response['status' == 'success']){
       await storeUserData(response['data']);
       Navigator.pushReplacementNamed(context,"/home");

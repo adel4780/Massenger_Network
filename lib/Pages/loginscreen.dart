@@ -6,7 +6,6 @@ import 'package:massenger/chatmodel/chat_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../Component/form.dart';
 import 'package:http/http.dart' as http;
-import 'package:massenger/services/auth_services.dart';
 class LoginScreen extends StatefulWidget {
   @override
   State<LoginScreen> createState() => Login();
@@ -23,7 +22,8 @@ class Login extends State<LoginScreen> {
     await prefs.setInt('user.user_id', userData['user_id']);
   }
   sendDataForLogin() async{
-   Map response = await (AuthService()).sendDataToLogin({"email": emailValue,"password": passwordValue});
+ //  Map response = await (AuthService()).sendDataToLogin({"email": emailValue,"password": passwordValue});
+    Map response={};
    if(response['status' == 'success']){
      await storeUserData(response['data']);
      Navigator.pushReplacementNamed(context,"/home");
