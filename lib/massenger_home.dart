@@ -22,11 +22,11 @@ class _MassengerHomeState extends State<MassengerHome>
 
   @override
   void initState() {
-    tabController = new TabController(initialIndex: 0, length: 3, vsync: this);
+    tabController = TabController(initialIndex: 0, length: 3, vsync: this);
 
     SliverAppBar mainAppBar = SliverAppBar(
       // search, setting
-      title: Text("Massenger"),
+      title: const Text("Massenger"),
       pinned: true,
       // pin appBar on Top
       floating: true,

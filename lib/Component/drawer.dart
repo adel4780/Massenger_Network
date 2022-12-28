@@ -4,7 +4,7 @@ import 'package:massenger/Pages/setting_screen.dart';
 import '../Pages/channel_screen.dart';
 import '../Pages/contact.dart';
 import '../Pages/group_screen.dart';
-import 'package:connectivity_plus/connectivity_plus.dart';
+//import 'package:connectivity_plus/connectivity_plus.dart';
 
 Drawer buildDrawerLayout(BuildContext context){
   return Drawer(
