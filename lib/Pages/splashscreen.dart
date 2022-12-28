@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:massenger/massenger_home.dart';
 import 'package:massenger/chatmodel/chat_model.dart';
-import 'package:massenger/services/auth_services.dart';
 import 'package:shared_preferences/shared_preferences.dart'
 ;import 'package:connectivity_plus/connectivity_plus.dart';
 class SplashScreen extends StatefulWidget {
@@ -28,9 +27,9 @@ class _SplashScreenState extends State<SplashScreen> {
     String? apiToken = prefs.getString('user.api_token');
     if(apiToken == null) navigationToLogin();
     if(await checkConnectionInternet()){
-      await AuthService.checkApiToken(apiToken!)
-          ?navigationToHome()
-          :navigationToLogin();
+      // await AuthService.checkApiToken(apiToken!)
+      //     ?navigationToHome()
+      //     :navigationToLogin();
     }else{
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
@@ -38,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen> {
           content: GestureDetector(
             onTap: (){
              // ScaffoldMessenger.of(context).hideCurrentSnackBar();
-              checkLogin();
+             //  ارتباط با سرور برقرار کن
             },
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
