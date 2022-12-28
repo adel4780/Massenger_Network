@@ -22,7 +22,7 @@ class Login extends State<LoginScreen> {
     await prefs.setString('user.api_token', userData['api_token']);
     await prefs.setInt('user.user_id', userData['user_id']);
   }
-  sendDataForLogin() async{
+  /*sendDataForLogin() async{
    Map response = await (AuthService()).sendDataToLogin({"email": emailValue,"password": passwordValue});
    if(response['status' == 'success']){
      await storeUserData(response['data']);
@@ -36,7 +36,7 @@ class Login extends State<LoginScreen> {
            ),
          ));
     }
-  }
+  }*/
 
   @override
   void initState() {
@@ -107,7 +107,7 @@ class Login extends State<LoginScreen> {
                // print(myTextFieldController.text);
                 if(formkey.currentState!.validate()){ // check
                   formkey.currentState!.save();
-                  await sendDataForLogin();
+                  //await sendDataForLogin();
                 }
               },
               child:Container(

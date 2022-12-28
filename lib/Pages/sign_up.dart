@@ -22,7 +22,7 @@ class _SingUpScreenState extends State<SingUpScreen> {
     await prefs.setString('user.api_token', userData['api_token']);
     await prefs.setInt('user.user_id', userData['user_id']);
   }
-  sendDataForLogin() async{
+/*  sendDataForSignUp() async{
     Map response = await (AuthService()).sendDataToLogin({"email": emailValue,"password": passwordValue});
     if(response['status' == 'success']){
       await storeUserData(response['data']);
@@ -36,7 +36,7 @@ class _SingUpScreenState extends State<SingUpScreen> {
             ),
           ));
     }
-  }
+  }*/
   @override
   Widget build(BuildContext context) {
     var page = MediaQuery.of(context).size;
@@ -88,7 +88,7 @@ class _SingUpScreenState extends State<SingUpScreen> {
                 // print(myTextFieldController.text);
                 if(formkey.currentState!.validate()){ // check
                   formkey.currentState!.save();
-                  await sendDataForLogin();
+                  //await sendDataForLogin();
                 }
               },
               child:Container(

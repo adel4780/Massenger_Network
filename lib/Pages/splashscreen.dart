@@ -23,49 +23,10 @@ class _SplashScreenState extends State<SplashScreen> {
   navigationToHome(){
     Navigator.of(context).pushNamed("/home");
   }
-  checkLogin() async{
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    String? apiToken = prefs.getString('user.api_token');
-    if(apiToken == null) navigationToLogin();
-    if(await checkConnectionInternet()){
-      await AuthService.checkApiToken(apiToken!)
-          ?navigationToHome()
-          :navigationToLogin();
-    }else{
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          duration: Duration(hours: 2),// check
-          content: GestureDetector(
-            onTap: (){
-             // ScaffoldMessenger.of(context).hideCurrentSnackBar();
-              checkLogin();
-            },
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Check your Connection!",
-                  style: TextStyle(fontSize: 14),
-                ),
-                Icon(Icons.wifi_lock, color: Colors.white,),
-              ],
-            ),
-          ),
-        ),
-      );
-    }
-  }
-  Future<bool> checkConnectionInternet() async{
-    var connectivityResult = await (Connectivity().checkConnectivity());
-    return
-      connectivityResult == ConnectivityResult.mobile
-          ||
-          connectivityResult == ConnectivityResult.wifi ;
-  }
   @override
   void initState() {
     super.initState();
-    checkLogin();
+    //checkLogin();
   }
   @override
    Widget build(BuildContext context) {
