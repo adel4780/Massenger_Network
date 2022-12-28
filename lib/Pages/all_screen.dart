@@ -3,6 +3,8 @@ import 'package:massenger/chatmodel/chat_model.dart';
 import 'package:massenger/Pages/single_chatscreen.dart';
 import 'package:massenger/chatmodel/chat_model.dart';
 class AllScreen extends StatelessWidget {
+  const AllScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(

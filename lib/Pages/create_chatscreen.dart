@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:massenger/massenger_home.dart';
 class CreateChatScreen extends StatelessWidget {
+  const CreateChatScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

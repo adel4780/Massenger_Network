@@ -10,6 +10,8 @@ import 'Component/drawer.dart';
 import 'Pages/contact.dart';
 
 class MassengerHome extends StatefulWidget {
+  const MassengerHome({super.key});
+
   @override
   State<MassengerHome> createState() => _MassengerHomeState();
 }
@@ -159,7 +161,7 @@ class _MassengerHomeState extends State<MassengerHome>
                   title: const Text("New Group"),
                   onTap: () {
                     Navigator.pop(context);
-                    Navigator.push(context,MaterialPageRoute(builder: (context) => GroupScreen()));
+                    Navigator.push(context,MaterialPageRoute(builder: (context) => const GroupScreen()));
                   }
               ),
               ListTile(
@@ -175,7 +177,7 @@ class _MassengerHomeState extends State<MassengerHome>
                   title: const Text("Contacts"),
                   onTap: () { // مخاطبین بساز
                     Navigator.pop(context);
-                    Navigator.push(context,MaterialPageRoute(builder: (context) => ChannelScreen()));
+                    Navigator.push(context,MaterialPageRoute(builder: (context) => const ChannelScreen()));
                   }
               ),
               ListTile(
@@ -183,7 +185,7 @@ class _MassengerHomeState extends State<MassengerHome>
                   title: const Text("Settings"),
                   onTap: () {
                     Navigator.pop(context);
-                    Navigator.push(context,MaterialPageRoute(builder: (context) => SettingScreen()));
+                    Navigator.push(context,MaterialPageRoute(builder: (context) => const SettingScreen()));
                   }
               ),
               ListTile(
@@ -203,7 +205,7 @@ class _MassengerHomeState extends State<MassengerHome>
           body: _currentAppBar == 'mainAppBar'
               ? TabBarView(
                   controller: tabController,
-                  children: [
+                  children: const [
                     AllScreen(),
                     GroupScreen(),
                     ChannelScreen(),
@@ -222,7 +224,7 @@ class _MassengerHomeState extends State<MassengerHome>
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => CreateChatScreen()),
+              MaterialPageRoute(builder: (context) => const CreateChatScreen()),
             );
           },
         ),

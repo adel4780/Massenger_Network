@@ -4,7 +4,7 @@ import 'package:massenger/chatmodel/chat_model.dart';
 class SingleChatScreen extends StatelessWidget {
   final ChatModel data ;
 
-  SingleChatScreen({required this.data});
+  const SingleChatScreen({super.key,  required this.data});
 
   @override
   Widget build(BuildContext context) {

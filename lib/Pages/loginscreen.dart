@@ -6,9 +6,10 @@ import 'package:massenger/chatmodel/chat_model.dart';
 //import 'package:shared_preferences/shared_preferences.dart';
 import '../Component/form.dart';
 import 'package:http/http.dart' as http;
-import 'package:massenger/services/auth_services.dart';
 import 'package:massenger/Pages/sign_up.dart';
 class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
+
   @override
   State<LoginScreen> createState() => Login();
 }
@@ -63,7 +64,7 @@ class Login extends State<LoginScreen> {
                 ),
                 ElevatedButton(
                     onPressed: () { // درستش کن
-                      Navigator.push(context,MaterialPageRoute(builder: (context) => SingUpScreen()));
+                      Navigator.push(context,MaterialPageRoute(builder: (context) => const SingUpScreen()));
                     },
                     child: const Text(
                       "Sign Up", style: TextStyle(
