@@ -10,7 +10,7 @@ class AllScreen extends StatelessWidget {
       itemBuilder: (context, index) {
         return Column(
           children: [
-            Divider(
+            const Divider(
               height: 10,
             ),
             GestureDetector(
@@ -25,13 +25,13 @@ class AllScreen extends StatelessWidget {
                 title: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(dummyData[index].name, style: TextStyle(fontWeight: FontWeight.bold),),
-                    Text(dummyData[index].time, style: TextStyle(color: Colors.grey, fontSize: 14),)
+                    Text(dummyData[index].name, style: const TextStyle(fontWeight: FontWeight.bold),),
+                    Text(dummyData[index].time, style: const TextStyle(color: Colors.grey, fontSize: 14),)
                   ],
                 ),
                 subtitle: Container(
                   padding: const EdgeInsets.only(top: 5),
-                  child: Text(dummyData[index].message, style: TextStyle(color: Colors.grey, fontSize: 15),),
+                  child: Text(dummyData[index].message, style: const TextStyle(color: Colors.grey, fontSize: 15),),
                 ),
               ),
             ),

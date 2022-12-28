@@ -15,14 +15,14 @@ class SingleChatScreen extends StatelessWidget {
           children: [
             GestureDetector(
               onTap: () => Navigator.pop(context),
-              child: Icon(Icons.arrow_back),
+              child: const Icon(Icons.arrow_back),
             ),
-            SizedBox(width: 10,),
-            CircleAvatar(
+            const SizedBox(width: 10,),
+            const CircleAvatar(
               backgroundColor: Colors.grey,
             ),
-            SizedBox(width: 10,),
-            Text(data.name, style: TextStyle(fontSize: 16),),
+            const SizedBox(width: 10,),
+            Text(data.name, style:const TextStyle(fontSize: 16),),
           ],
         ),
       ),
@@ -30,7 +30,7 @@ class SingleChatScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("Chat Page" + data.name, style: TextStyle(fontSize: 20),),
+            Text("Chat Page${data.name}", style: const TextStyle(fontSize: 20),),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -38,13 +38,13 @@ class SingleChatScreen extends StatelessWidget {
                   onPressed: () { // یک پیج بساز
                     Navigator.push(context, MaterialPageRoute(builder: (context) => MassengerHome()));
                   },
-                  child: Text("Second Page"),
+                  child: const Text("Second Page"),
                 ),
                 ElevatedButton(
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  child: Text("Back"),
+                  child: const Text("Back"),
                 ),
               ],
             ),

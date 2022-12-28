@@ -1,5 +1,3 @@
-import 'dart:convert';
-import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -19,6 +17,7 @@ class _SocketIoState extends State<SocketIoScreen> {
   late int userId;
   @override
   void initState() {
+    super.initState();
     // TODO: implement initState
     textcontroller = TextEditingController();
     messages.addAll(dummyData);
@@ -32,12 +31,12 @@ class _SocketIoState extends State<SocketIoScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Chat"),
+        title: const Text("Chat"),
       ),
       body: Stack(
         children: [
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Colors.white,
             ),
           ),
@@ -46,13 +45,13 @@ class _SocketIoState extends State<SocketIoScreen> {
             children: [
               Expanded(
                   child: Padding(
-                    padding: EdgeInsets.only(right: 10,left: 10,top: 10),
+                    padding: const EdgeInsets.only(right: 10,left: 10,top: 10),
                     child: ListView.builder(
                         itemCount: messages.length,
                         itemBuilder: (BuildContext context, int index){
                           return Container(
-                            margin: EdgeInsets.only(bottom: 5),
-                            padding: EdgeInsets.only(top: 5, bottom: 5, left: 10, right: 10),
+                            margin: const EdgeInsets.only(bottom: 5),
+                            padding: const EdgeInsets.only(top: 5, bottom: 5, left: 10, right: 10),
                             decoration: BoxDecoration(
                               color: userId == messages[index].id
                               ? Colors.blueAccent
@@ -69,14 +68,14 @@ class _SocketIoState extends State<SocketIoScreen> {
                   ),
               ),
               Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Colors.white,
                 ),
                 child: Row(
                   children: [
                     IconButton(
                       onPressed: () {
-                        if(!textcontroller.text.isEmpty){
+                        if(textcontroller.text.isNotEmpty){ // check
                           String msg = textcontroller.text;
                           setState(() {
                             messages.add(ChatModel(
@@ -91,12 +90,12 @@ class _SocketIoState extends State<SocketIoScreen> {
                           textcontroller.text = '';
                         }
                       },
-                      icon: Icon(Icons.insert_emoticon),
+                      icon: const Icon(Icons.insert_emoticon),
                     ),
                     Expanded(
                       child: TextField(
                         controller: textcontroller,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           hintText: "type",
                           border: InputBorder.none,
                         ),
@@ -104,7 +103,7 @@ class _SocketIoState extends State<SocketIoScreen> {
                     ),
                     IconButton(
                       onPressed: () {},
-                      icon: Icon(Icons.send),
+                      icon: const Icon(Icons.send),
                     ),
                   ],
                 ),

@@ -5,18 +5,18 @@ class SettingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Setting"),
+        title: const Text("Setting"),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("Setting", style: TextStyle(fontSize: 20),),
+            const Text("Setting", style: TextStyle(fontSize: 20),),
             ElevatedButton(
               onPressed: () {
                 Navigator.pop(context);
               },
-              child: Text("Back"),
+              child:const Text("Back"),
             ),
           ],
         ),

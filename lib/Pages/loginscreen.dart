@@ -7,6 +7,7 @@ import 'package:massenger/chatmodel/chat_model.dart';
 import '../Component/form.dart';
 import 'package:http/http.dart' as http;
 import 'package:massenger/services/auth_services.dart';
+import 'package:massenger/Pages/sign_up.dart';
 class LoginScreen extends StatefulWidget {
   @override
   State<LoginScreen> createState() => Login();
@@ -28,7 +29,7 @@ class Login extends State<LoginScreen> {
       key: scaffoldkey, // چک شود
       resizeToAvoidBottomInset: false,
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [
               Colors.blueAccent, // تغییر
@@ -46,7 +47,7 @@ class Login extends State<LoginScreen> {
                 child: Container(
                 width: page.width,
                 height:page.height,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   image: DecorationImage(
                       image: AssetImage("img/login.png"),
                       repeat: ImageRepeat.repeat
@@ -62,9 +63,9 @@ class Login extends State<LoginScreen> {
                 ),
                 ElevatedButton(
                     onPressed: () { // درستش کن
-
+                      Navigator.push(context,MaterialPageRoute(builder: (context) => SingUpScreen()));
                     },
-                    child: Text(
+                    child: const Text(
                       "Sign Up", style: TextStyle(
                         fontWeight: FontWeight.w300,
                         letterSpacing: 0.5,
@@ -80,15 +81,15 @@ class Login extends State<LoginScreen> {
                   Navigator.of(context).pushNamed("/home");
               },
               child:Container(
-                margin: EdgeInsets.only(bottom: 30),
+                margin: const EdgeInsets.only(bottom: 30),
                 width: 230,
                 height: 60,
                 alignment: Alignment.center,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     color: Colors.blue,
                     borderRadius: BorderRadius.all(Radius.circular(30))
                 ),
-                child: Text(
+                child: const Text(
                   "Sign in",
                   style: TextStyle(
                     color: Colors.white,

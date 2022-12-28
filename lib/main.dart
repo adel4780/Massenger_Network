@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       initialRoute: "/",//"/splash_screen"
       routes: {
        // "/" :(context) =>Directionality(textDirection: TextDirection.ltr,child: SocketIoScreen(),),
-        "/" :(context) =>Directionality(textDirection: TextDirection.ltr,child: SplashScreen(),),
+        "/" :(context) =>const Directionality(textDirection: TextDirection.ltr,child: SplashScreen(),),
         "/login" :(context) =>Directionality(textDirection: TextDirection.ltr,child: LoginScreen(),),
         "/home" : (context) => Directionality(textDirection: TextDirection.ltr,child: MassengerHome(),),
       },

@@ -7,8 +7,8 @@ class FormLoginContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 20),
-      padding: EdgeInsets.symmetric(horizontal: 20),
+      margin: const EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         children: [
           Form(
@@ -16,7 +16,7 @@ class FormLoginContainer extends StatelessWidget {
               child: Column(
                 children: [
                   InputFieldArea(
-                    hint: 'e-mail',
+                    hint: 'e-mail', // Phone
                     obscure: false,
                     icon: Icons.person_outline,
                     validator: ( value){  // mistake درستش کن

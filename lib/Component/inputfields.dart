@@ -12,11 +12,11 @@ class InputFieldArea extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 10),
+      margin: const EdgeInsets.only(bottom: 10),
       child: TextFormField(
         validator: validator,
         obscureText: obscure,
-        style: TextStyle(
+        style: const TextStyle(
           color: Colors.white,
         ),
         decoration: InputDecoration(
@@ -24,30 +24,30 @@ class InputFieldArea extends StatelessWidget {
             icon,
             color: Colors.white,
           ),
-          enabledBorder: UnderlineInputBorder(
+          enabledBorder: const UnderlineInputBorder(
             borderSide: BorderSide(
               color: Colors.white30,
             ),
           ),
-          focusedBorder: UnderlineInputBorder(
+          focusedBorder: const UnderlineInputBorder(
             borderSide: BorderSide(
               color: Colors.white,
             ),
           ),
-          errorStyle: TextStyle(color: Colors.amber),
-          errorBorder: UnderlineInputBorder(
+          errorStyle: const TextStyle(color: Colors.amber),
+          errorBorder: const UnderlineInputBorder(
             borderSide: BorderSide(
               color: Colors.amber,
             ),
           ),
-          focusedErrorBorder: UnderlineInputBorder(
+          focusedErrorBorder: const UnderlineInputBorder(
             borderSide: BorderSide(
               color: Colors.amber,
             ),
           ),
           hintText: hint,
           hintStyle: const TextStyle(color: Colors.white, fontSize: 15),
-          contentPadding: EdgeInsets.only(top: 15, right: 0, bottom: 20, left: 5)
+          contentPadding: const EdgeInsets.only(top: 15, right: 0, bottom: 20, left: 5)
         ),
       ),
     );

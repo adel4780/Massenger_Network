@@ -5,13 +5,13 @@ class CreateChatScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Create Chat"),
+        title: const Text("Create Chat"),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("Create Chat", style: TextStyle(fontSize: 20),),
+            const Text("Create Chat", style: TextStyle(fontSize: 20),),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -19,13 +19,13 @@ class CreateChatScreen extends StatelessWidget {
                     onPressed: () { // یک پیج بساز
                       Navigator.push(context, MaterialPageRoute(builder: (context) => MassengerHome()));
                     },
-                    child: Text("Second Page"),
+                    child: const Text("Second Page"),
                 ),
                 ElevatedButton(
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  child: Text("Back"),
+                  child: const Text("Back"),
                 ),
               ],
             ),
