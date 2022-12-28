@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:massenger/Pages/setting_screen.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+//import 'package:shared_preferences/shared_preferences.dart';
 import '../Pages/channel_screen.dart';
 import '../Pages/contact.dart';
 import '../Pages/group_screen.dart';
@@ -76,9 +76,7 @@ Drawer buildDrawerLayout(BuildContext context){
             leading: Icon(Icons.logout),
             title: Text("Logout"),
             onTap: () async {
-              SharedPreferences prefs = await SharedPreferences.getInstance();
-              await prefs.remove('user.api_token');
-              Navigator.of(context).pushReplacementNamed('/login');
+
             }
         ),
       ],

@@ -3,7 +3,7 @@ import 'dart:convert';
 import'package:flutter/material.dart';
 import 'package:massenger/massenger_home.dart';
 import 'package:massenger/chatmodel/chat_model.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+//import 'package:shared_preferences/shared_preferences.dart';
 import '../Component/form.dart';
 import 'package:http/http.dart' as http;
 import 'package:massenger/services/auth_services.dart';
@@ -16,32 +16,9 @@ class Login extends State<LoginScreen> {
   final scaffoldkey = GlobalKey<FormState>();
   late String emailValue;
   late String passwordValue;
- // late final TextEditingController myTextFieldController ;
-  storeUserData(Map userData) async  {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setString('user.api_token', userData['api_token']);
-    await prefs.setInt('user.user_id', userData['user_id']);
-  }
-  /*sendDataForLogin() async{
-   Map response = await (AuthService()).sendDataToLogin({"email": emailValue,"password": passwordValue});
-   if(response['status' == 'success']){
-     await storeUserData(response['data']);
-     Navigator.pushReplacementNamed(context,"/home");
-   }
-   else{ // چک شود
-     ScaffoldMessenger.of(context).showSnackBar(
-         SnackBar(
-           content: Text( // 'E-mai or Password are not Correct'
-               response['data'],
-           ),
-         ));
-    }
-  }*/
-
   @override
   void initState() {
     super.initState();
-    //myTextFieldController.addListener(() { });
   }
   @override
   Widget build(BuildContext context) {
@@ -83,10 +60,6 @@ class Login extends State<LoginScreen> {
                 FormLoginContainer(
                     formkey: formkey,
                 ),
-
-                /*TextField(
-                  controller: myTextFieldController,
-                ),*/
                 ElevatedButton(
                     onPressed: () { // درستش کن
 
@@ -104,11 +77,7 @@ class Login extends State<LoginScreen> {
             ),
             GestureDetector(
               onTap: () async{
-               // print(myTextFieldController.text);
-                if(formkey.currentState!.validate()){ // check
-                  formkey.currentState!.save();
-                  //await sendDataForLogin();
-                }
+                  Navigator.of(context).pushNamed("/home");
               },
               child:Container(
                 margin: EdgeInsets.only(bottom: 30),

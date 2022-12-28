@@ -18,10 +18,10 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.white, // درست کن
       ),
       debugShowCheckedModeBanner: false,
-      initialRoute: "/splash_screen",
+      initialRoute: "/",//"/splash_screen"
       routes: {
-        "/" :(context) =>Directionality(textDirection: TextDirection.ltr,child: SocketIoScreen(),),
-        //"/" :(context) =>Directionality(textDirection: TextDirection.ltr,child: SplashScreen(),),
+       // "/" :(context) =>Directionality(textDirection: TextDirection.ltr,child: SocketIoScreen(),),
+        "/" :(context) =>Directionality(textDirection: TextDirection.ltr,child: SplashScreen(),),
         "/login" :(context) =>Directionality(textDirection: TextDirection.ltr,child: LoginScreen(),),
         "/home" : (context) => Directionality(textDirection: TextDirection.ltr,child: MassengerHome(),),
       },

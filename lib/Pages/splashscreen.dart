@@ -1,11 +1,5 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:massenger/massenger_home.dart';
-import 'package:massenger/chatmodel/chat_model.dart';
-import 'package:massenger/services/auth_services.dart';
-import 'package:shared_preferences/shared_preferences.dart'
-;import 'package:connectivity_plus/connectivity_plus.dart';
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
@@ -23,10 +17,14 @@ class _SplashScreenState extends State<SplashScreen> {
   navigationToHome(){
     Navigator.of(context).pushNamed("/home");
   }
+  startTime(){
+    var _duration = Duration(seconds: 5);
+    return new Timer(_duration, (){Navigator.of(context).pushNamed("/login");});
+  }
   @override
   void initState() {
     super.initState();
-    //checkLogin();
+    startTime();
   }
   @override
    Widget build(BuildContext context) {
