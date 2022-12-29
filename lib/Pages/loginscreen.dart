@@ -66,7 +66,6 @@ class Login extends State<LoginScreen> {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    // درستش کن
                     Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -86,6 +85,8 @@ class Login extends State<LoginScreen> {
             ),
             GestureDetector(
               onTap: () async {
+                //Erfan 
+                //this is for login with Phone and password
                 Navigator.of(context).pushNamed("/home");
               },
               child: Container(
