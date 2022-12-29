@@ -13,7 +13,8 @@ class ChatModel {
       required this.time,
       required this.avatarUrl}); // sharit
 }
-
+// Erfan 
+// inja bayad List Afrad ro az Server biary to AllScreen
 List<ChatModel> dummyData = [
   ChatModel(
       id: 1000,
