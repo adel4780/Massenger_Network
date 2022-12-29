@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:massenger/Pages/socket_io.dart';
 import 'package:massenger/chatmodel/chat_model.dart';
 import 'package:massenger/Pages/single_chatscreen.dart';
 import 'package:massenger/chatmodel/chat_model.dart';
@@ -16,7 +15,7 @@ class AllScreen extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () { //SocketIoScreen // SingleChatScreen(data: dummyData[index])
-                Navigator.push(context, MaterialPageRoute(builder: (context) => SocketIoScreen(data: dummyData[index], idx: index,)));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => SingleChatScreen(data: dummyData[index], idx: index,)));
                 },
               child: ListTile(
                 leading: CircleAvatar(
