@@ -1,12 +1,9 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:massenger/Pages/all_screen.dart';
 import 'package:massenger/Pages/group_screen.dart';
 import 'package:massenger/Pages/channel_screen.dart';
 import 'package:massenger/Pages/create_chatscreen.dart';
 import 'package:massenger/Pages/setting_screen.dart';
-import 'Component/drawer.dart';
 import 'Pages/contact.dart';
 import 'Pages/profile.dart';
 
@@ -30,7 +27,7 @@ class _MassengerHomeState extends State<MassengerHome>
     tabController = TabController(initialIndex: 0, length: 3, vsync: this);
     SliverAppBar mainAppBar = SliverAppBar(
       // search, setting
-      title: const Text("Massenger"),
+      title: Text("Massenger"),
       pinned: true,
       // pin appBar on Top
       floating: true,
@@ -134,28 +131,23 @@ class _MassengerHomeState extends State<MassengerHome>
                 padding: EdgeInsets.zero,
                 child: Container(
                   decoration: const BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [
-                        Colors.blueAccent,
-                        Colors.blueAccent,
-                      ],
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                    ),
+                    color: Colors.blue,
                   ),
                   child: Stack(
                     children: const [
                       Align(
-                        alignment: Alignment.bottomCenter,
-                        child: ListTile(
-                          leading: CircleAvatar(
-                            backgroundColor: Colors.grey, // image profile
+                        alignment: Alignment.centerLeft,
+                        child: CircleAvatar(
+                          backgroundImage: NetworkImage("https://www.daneshjooyar.com/wp-content/themes/daneshlight/Images/man-with-laptop.png"),
+                            radius: 30,// image profile
                           ),
-                          title: Text(
-                            //Erfan => username
-                            "username",
-                            style: TextStyle(color: Colors.grey),
-                          ),
+                      ),
+                      Align(
+                        alignment: Alignment.center,
+                        child:Text(
+                          //Erfan => username
+                          "username",
+                          style: TextStyle(color: Colors.white, fontSize: 15),
                         ),
                       ),
                     ],
