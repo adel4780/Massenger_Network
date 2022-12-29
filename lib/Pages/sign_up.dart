@@ -57,6 +57,8 @@ class _SingUpScreenState extends State<SingUpScreen> {
             ),
             GestureDetector(
               onTap: () async {
+                // Erfan
+                // save Phone, Email, Password in server
                 Navigator.of(context).pushNamed("/home");
               },
               child: Container(
