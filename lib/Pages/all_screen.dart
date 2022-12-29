@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:massenger/chatmodel/chat_model.dart';
 import 'package:massenger/Pages/single_chatscreen.dart';
-import 'package:massenger/chatmodel/chat_model.dart';
 class AllScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
