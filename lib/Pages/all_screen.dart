@@ -13,7 +13,7 @@ class AllScreen extends StatelessWidget {
               height: 10,
             ),
             GestureDetector(
-              onTap: () { //SocketIoScreen // SingleChatScreen(data: dummyData[index])
+              onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => SingleChatScreen(data: dummyData[index], idx: index,)));
                 },
               child: ListTile(
@@ -38,8 +38,5 @@ class AllScreen extends StatelessWidget {
         );
       },
     );
-      /*Center(
-      child: Text("All chat",style: TextStyle(fontSize: 20),),
-    );*/
   }
 }

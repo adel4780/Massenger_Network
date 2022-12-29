@@ -8,6 +8,7 @@ import 'package:massenger/Pages/create_chatscreen.dart';
 import 'package:massenger/Pages/setting_screen.dart';
 import 'Component/drawer.dart';
 import 'Pages/contact.dart';
+import 'Pages/profile.dart';
 
 class MassengerHome extends StatefulWidget {
   const MassengerHome({super.key});
@@ -151,8 +152,9 @@ class _MassengerHomeState extends State<MassengerHome>
                             backgroundColor: Colors.grey, // image profile
                           ),
                           title: Text(
+                            //Erfan => username
                             "username",
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(color: Colors.grey),
                           ),
                         ),
                       ),
@@ -193,14 +195,25 @@ class _MassengerHomeState extends State<MassengerHome>
                   }),
               ListTile(
                   leading: const Icon(Icons.settings),
+                  title: const Text("Profile"),
+                  onTap: () {
+                    Navigator.pop(context);
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ProfileScreen()));
+                  }),
+              ListTile(
+                  leading: const Icon(Icons.settings),
                   title: const Text("Settings"),
                   onTap: () {
                     Navigator.pop(context);
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const SettingScreen()));
+                            builder: (context) => SettingScreen()));
                   }),
+
               ListTile(
                   leading: const Icon(Icons.logout),
                   title: const Text("Logout"),
