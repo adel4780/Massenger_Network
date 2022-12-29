@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:massenger/massenger_home.dart';
 import 'package:massenger/chatmodel/chat_model.dart';
-class SingleChatScreen extends StatelessWidget {
-  final ChatModel data ;
 
-  const SingleChatScreen({super.key,  required this.data});
+class SingleChatScreen extends StatelessWidget {
+  final ChatModel data;
+
+  const SingleChatScreen({super.key, required this.data});
 
   @override
   Widget build(BuildContext context) {
@@ -17,12 +18,19 @@ class SingleChatScreen extends StatelessWidget {
               onTap: () => Navigator.pop(context),
               child: const Icon(Icons.arrow_back),
             ),
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
             const CircleAvatar(
               backgroundColor: Colors.grey,
             ),
-            const SizedBox(width: 10,),
-            Text(data.name, style:const TextStyle(fontSize: 16),),
+            const SizedBox(
+              width: 10,
+            ),
+            Text(
+              data.name,
+              style: const TextStyle(fontSize: 16),
+            ),
           ],
         ),
       ),
@@ -30,13 +38,20 @@ class SingleChatScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("Chat Page${data.name}", style: const TextStyle(fontSize: 20),),
+            Text(
+              "Chat Page${data.name}",
+              style: const TextStyle(fontSize: 20),
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ElevatedButton(
-                  onPressed: () { // یک پیج بساز
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => MassengerHome()));
+                  onPressed: () {
+                    // یک پیج بساز
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const MassengerHome()));
                   },
                   child: const Text("Second Page"),
                 ),

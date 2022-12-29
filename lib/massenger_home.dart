@@ -92,36 +92,39 @@ class _MassengerHomeState extends State<MassengerHome>
       'searchAppBar': searchAppBar,
     };
   }
-  Future<bool> willpop() async{
-    return  (await showDialog (
-        context: context,
-        builder: (context) {
-          return Directionality(
-            textDirection: TextDirection.ltr,
-            child: AlertDialog(
-              title: const Text("Do You Want to Exit?"),
-              actions: [
-                ElevatedButton(
-                  onPressed: () => Navigator.of(context).pop(true),//exit(0),
-                  child: const Text(
-                    'Yes',
-                    style: TextStyle(fontWeight: FontWeight.bold),
+
+  Future<bool> willpop() async {
+    return (await showDialog(
+          context: context,
+          builder: (context) {
+            return Directionality(
+              textDirection: TextDirection.ltr,
+              child: AlertDialog(
+                title: const Text("Do You Want to Exit?"),
+                actions: [
+                  ElevatedButton(
+                    onPressed: () => Navigator.of(context).pop(true), //exit(0),
+                    child: const Text(
+                      'Yes',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
                   ),
-                ),
-                ElevatedButton(
-                  onPressed: () => Navigator.of(context).pop(false),
-                  child: const Text('No'),
-                )
-              ],
-            ),
-          );
-        },
-    )) ?? false;
+                  ElevatedButton(
+                    onPressed: () => Navigator.of(context).pop(false),
+                    child: const Text('No'),
+                  )
+                ],
+              ),
+            );
+          },
+        )) ??
+        false;
   }
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop:willpop,
+      onWillPop: willpop,
       child: Scaffold(
         drawer: Drawer(
           child: ListView(
@@ -131,12 +134,12 @@ class _MassengerHomeState extends State<MassengerHome>
                 child: Container(
                   decoration: const BoxDecoration(
                     gradient: LinearGradient(
-                      colors:[
+                      colors: [
                         Colors.blueAccent,
                         Colors.blueAccent,
                       ],
                       begin: Alignment.topCenter,
-                      end:  Alignment.bottomCenter,
+                      end: Alignment.bottomCenter,
                     ),
                   ),
                   child: Stack(
@@ -147,11 +150,12 @@ class _MassengerHomeState extends State<MassengerHome>
                           leading: CircleAvatar(
                             backgroundColor: Colors.grey, // image profile
                           ),
-                          title: Text("username",style: TextStyle(color: Colors.white),),
+                          title: Text(
+                            "username",
+                            style: TextStyle(color: Colors.white),
+                          ),
                         ),
-
                       ),
-
                     ],
                   ),
                 ),
@@ -161,43 +165,49 @@ class _MassengerHomeState extends State<MassengerHome>
                   title: const Text("New Group"),
                   onTap: () {
                     Navigator.pop(context);
-                    Navigator.push(context,MaterialPageRoute(builder: (context) => const GroupScreen()));
-                  }
-              ),
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const GroupScreen()));
+                  }),
               ListTile(
                   leading: const Icon(Icons.speaker),
                   title: const Text("New Channel"),
                   onTap: () {
                     Navigator.pop(context);
-                    Navigator.push(context,MaterialPageRoute(builder: (context) => const ContactScreen()));
-                  }
-              ),
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ContactScreen()));
+                  }),
               ListTile(
                   leading: const Icon(Icons.person),
                   title: const Text("Contacts"),
-                  onTap: () { // مخاطبین بساز
+                  onTap: () {
+                    // مخاطبین بساز
                     Navigator.pop(context);
-                    Navigator.push(context,MaterialPageRoute(builder: (context) => const ChannelScreen()));
-                  }
-              ),
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ChannelScreen()));
+                  }),
               ListTile(
                   leading: const Icon(Icons.settings),
                   title: const Text("Settings"),
                   onTap: () {
                     Navigator.pop(context);
-                    Navigator.push(context,MaterialPageRoute(builder: (context) => const SettingScreen()));
-                  }
-              ),
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const SettingScreen()));
+                  }),
               ListTile(
                   leading: const Icon(Icons.logout),
                   title: const Text("Logout"),
-                  onTap: () async {
-
-                  }
-              ),
+                  onTap: () async {}),
             ],
           ),
-        ),//->
+        ), //->
         body: NestedScrollView(
           headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
             return <Widget>[Container(child: appBarList[_currentAppBar])];
@@ -228,7 +238,6 @@ class _MassengerHomeState extends State<MassengerHome>
             );
           },
         ),
-
       ),
     );
   }

@@ -5,6 +5,7 @@ import 'package:massenger/Pages/setting_screen.dart';
 import 'package:massenger/massenger_home.dart';
 import 'package:massenger/Pages/splashscreen.dart';
 import 'Pages/loginscreen.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -20,12 +21,21 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.white, // درست کن
       ),
       debugShowCheckedModeBanner: false,
-      initialRoute: "/",//"/splash_screen"
+      initialRoute: "/", //"/splash_screen"
       routes: {
-       // "/" :(context) =>Directionality(textDirection: TextDirection.ltr,child: SocketIoScreen(),),
-        "/" :(context) =>const Directionality(textDirection: TextDirection.ltr,child: SplashScreen(),),
-        "/login" :(context) =>const Directionality(textDirection: TextDirection.ltr,child: LoginScreen(),),
-        "/home" : (context) => const Directionality(textDirection: TextDirection.ltr,child: MassengerHome(),),
+        // "/" :(context) =>Directionality(textDirection: TextDirection.ltr,child: SocketIoScreen(),),
+        "/": (context) => const Directionality(
+              textDirection: TextDirection.ltr,
+              child: SplashScreen(),
+            ),
+        "/login": (context) => const Directionality(
+              textDirection: TextDirection.ltr,
+              child: LoginScreen(),
+            ),
+        "/home": (context) => const Directionality(
+              textDirection: TextDirection.ltr,
+              child: MassengerHome(),
+            ),
       },
     );
   }

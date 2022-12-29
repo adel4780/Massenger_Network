@@ -1,6 +1,6 @@
 class Chat {
-  final String? userId;
-  final String? userName;
+  final String? senderID;
+  final String? receiverID;
 
   final String? message;
   final String? time;
@@ -8,8 +8,8 @@ class Chat {
 
   Chat({
     this.type,
-    this.userId,
-    this.userName,
+    this.senderID,
+    this.receiverID,
     this.message,
     this.time,
   });
@@ -17,16 +17,16 @@ class Chat {
   factory Chat.fromRawJson(Map<String, dynamic> jsonData) {
     return Chat(
         type: jsonData['type'],
-        userId: jsonData['userId'],
-        userName: jsonData['userName'],
+        senderID: jsonData['senderID'],
+        receiverID: jsonData['receiverID'],
         message: jsonData['message'],
         time: jsonData['time']);
   }
   Map<String, dynamic> toJson() {
     return {
       "type": type,
-      "userId": userId,
-      "userName": userName,
+      "userId": senderID,
+      "userName": receiverID,
       "message": message,
       "time": time,
     };

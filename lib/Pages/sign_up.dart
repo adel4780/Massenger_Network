@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../Component/form_sign_up.dart';
+
 class SingUpScreen extends StatefulWidget {
   const SingUpScreen({Key? key}) : super(key: key);
 
@@ -38,12 +39,11 @@ class _SingUpScreenState extends State<SingUpScreen> {
               opacity: 0.1,
               child: Container(
                 width: page.width,
-                height:page.height,
+                height: page.height,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
                       image: AssetImage("img/login.png"),
-                      repeat: ImageRepeat.repeat
-                  ),
+                      repeat: ImageRepeat.repeat),
                 ),
               ),
             ),
@@ -56,18 +56,17 @@ class _SingUpScreenState extends State<SingUpScreen> {
               ],
             ),
             GestureDetector(
-              onTap: () async{
+              onTap: () async {
                 Navigator.of(context).pushNamed("/home");
               },
-              child:Container(
+              child: Container(
                 margin: const EdgeInsets.only(bottom: 30),
                 width: 230,
                 height: 60,
                 alignment: Alignment.center,
                 decoration: const BoxDecoration(
                     color: Colors.blue,
-                    borderRadius: BorderRadius.all(Radius.circular(30))
-                ),
+                    borderRadius: BorderRadius.all(Radius.circular(30))),
                 child: const Text(
                   "Sign Up",
                   style: TextStyle(

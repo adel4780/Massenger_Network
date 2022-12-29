@@ -1,18 +1,20 @@
 import 'dart:convert';
 
-import'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:massenger/massenger_home.dart';
 import 'package:massenger/chatmodel/chat_model.dart';
 //import 'package:shared_preferences/shared_preferences.dart';
 import '../Component/form.dart';
 import 'package:http/http.dart' as http;
 import 'package:massenger/Pages/sign_up.dart';
+
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
   @override
   State<LoginScreen> createState() => Login();
 }
+
 class Login extends State<LoginScreen> {
   final formkey = GlobalKey<FormState>();
   final scaffoldkey = GlobalKey<FormState>();
@@ -22,6 +24,7 @@ class Login extends State<LoginScreen> {
   void initState() {
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     var page = MediaQuery.of(context).size;
@@ -44,15 +47,14 @@ class Login extends State<LoginScreen> {
           alignment: Alignment.bottomCenter,
           children: [
             Opacity(
-                opacity: 0.1,
-                child: Container(
+              opacity: 0.1,
+              child: Container(
                 width: page.width,
-                height:page.height,
+                height: page.height,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
                       image: AssetImage("img/login.png"),
-                      repeat: ImageRepeat.repeat
-                  ),
+                      repeat: ImageRepeat.repeat),
                 ),
               ),
             ),
@@ -60,36 +62,40 @@ class Login extends State<LoginScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 FormLoginContainer(
-                    formkey: formkey,
+                  formkey: formkey,
                 ),
                 ElevatedButton(
-                    onPressed: () { // درستش کن
-                      Navigator.push(context,MaterialPageRoute(builder: (context) => const SingUpScreen()));
-                    },
-                    child: const Text(
-                      "Sign Up", style: TextStyle(
-                        fontWeight: FontWeight.w300,
-                        letterSpacing: 0.5,
-                        color: Colors.white,
-                        fontSize: 14,
-                      ),
+                  onPressed: () {
+                    // درستش کن
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const SingUpScreen()));
+                  },
+                  child: const Text(
+                    "Sign Up",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w300,
+                      letterSpacing: 0.5,
+                      color: Colors.white,
+                      fontSize: 14,
                     ),
+                  ),
                 ),
               ],
             ),
             GestureDetector(
-              onTap: () async{
-                  Navigator.of(context).pushNamed("/home");
+              onTap: () async {
+                Navigator.of(context).pushNamed("/home");
               },
-              child:Container(
+              child: Container(
                 margin: const EdgeInsets.only(bottom: 30),
                 width: 230,
                 height: 60,
                 alignment: Alignment.center,
                 decoration: const BoxDecoration(
                     color: Colors.blue,
-                    borderRadius: BorderRadius.all(Radius.circular(30))
-                ),
+                    borderRadius: BorderRadius.all(Radius.circular(30))),
                 child: const Text(
                   "Sign in",
                   style: TextStyle(

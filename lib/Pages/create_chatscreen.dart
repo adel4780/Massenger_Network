@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:massenger/massenger_home.dart';
+
 class CreateChatScreen extends StatelessWidget {
   const CreateChatScreen({super.key});
 
@@ -13,15 +14,22 @@ class CreateChatScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text("Create Chat", style: TextStyle(fontSize: 20),),
+            const Text(
+              "Create Chat",
+              style: TextStyle(fontSize: 20),
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ElevatedButton(
-                    onPressed: () { // یک پیج بساز
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => MassengerHome()));
-                    },
-                    child: const Text("Second Page"),
+                  onPressed: () {
+                    // یک پیج بساز
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const MassengerHome()));
+                  },
+                  child: const Text("Second Page"),
                 ),
                 ElevatedButton(
                   onPressed: () {

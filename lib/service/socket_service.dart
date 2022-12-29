@@ -7,7 +7,7 @@ class SocketService {
   static late StreamController<Chat> _socketResponse;
   static late StreamController<List<String>> _userResponse;
   static late io.Socket _socket;
-  static String _userName = '';
+  static String _receiverID = '';
 
   static String? get userId => _socket.id;
 
@@ -16,8 +16,8 @@ class SocketService {
   static Stream<List<String>> get userResponse =>
       _userResponse.stream.asBroadcastStream();
 
-  static void setUserName(String name) {
-    _userName = name;
+  static void setReceiverID(String receiverID) {
+    _receiverID = receiverID;
   }
 
   static void sendMessage(String type, String message) {
@@ -25,8 +25,8 @@ class SocketService {
         'message',
         Chat(
           type: type,
-          userId: userId,
-          userName: _userName,
+          senderID: userId,
+          receiverID: _receiverID,
           message: message,
           time: DateTime.now().toString(),
         ));
@@ -38,9 +38,8 @@ class SocketService {
     _socket = io.io(
         serverUrl,
         io.OptionBuilder()
-            .setTransports(['websocket']) // for Flutter or Dart VM
+            .setTransports(['websocket'])
             .disableAutoConnect()
-            .setQuery({'userName': _userName})
             .build());
 
     _socket.connect();
