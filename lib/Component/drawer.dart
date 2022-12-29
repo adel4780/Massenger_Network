@@ -4,6 +4,7 @@ import 'package:massenger/Pages/setting_screen.dart';
 import '../Pages/channel_screen.dart';
 import '../Pages/contact.dart';
 import '../Pages/group_screen.dart';
+
 //import 'package:connectivity_plus/connectivity_plus.dart';
 class DrawerLayoutBar extends StatefulWidget {
   const DrawerLayoutBar({Key? key}) : super(key: key);
@@ -28,7 +29,7 @@ class _DrawerLayoutBarState extends State<DrawerLayoutBar> {
                     Colors.white,
                   ],
                   begin: Alignment.topCenter,
-                  end:  Alignment.bottomCenter,
+                  end: Alignment.bottomCenter,
                 ),
               ),
               child: Stack(
@@ -39,11 +40,12 @@ class _DrawerLayoutBarState extends State<DrawerLayoutBar> {
                       leading: CircleAvatar(
                         backgroundColor: Colors.grey, // image profile
                       ),
-                      title: Text("username",style: TextStyle(color: Colors.white),),
+                      title: Text(
+                        "username",
+                        style: TextStyle(color: Colors.white),
+                      ),
                     ),
-
                   ),
-
                 ],
               ),
             ),
@@ -53,54 +55,60 @@ class _DrawerLayoutBarState extends State<DrawerLayoutBar> {
               title: const Text("New Group"),
               onTap: () {
                 Navigator.pop(context);
-                Navigator.push(context,MaterialPageRoute(builder: (context) => GroupScreen()));
-              }
-          ),
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const GroupScreen()));
+              }),
           ListTile(
               leading: const Icon(Icons.speaker),
               title: const Text("New Channel"),
               onTap: () {
                 Navigator.pop(context);
-                Navigator.push(context,MaterialPageRoute(builder: (context) => const ContactScreen()));
-              }
-          ),
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ContactScreen()));
+              }),
           ListTile(
               leading: const Icon(Icons.person),
               title: const Text("Contacts"),
-              onTap: () { // مخاطبین بساز
+              onTap: () {
+                // مخاطبین بساز
                 Navigator.pop(context);
-                Navigator.push(context,MaterialPageRoute(builder: (context) => ChannelScreen()));
-              }
-          ),
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ChannelScreen()));
+              }),
           ListTile(
               leading: const Icon(Icons.settings),
               title: const Text("Settings"),
               onTap: () {
                 Navigator.pop(context);
-                Navigator.push(context,MaterialPageRoute(builder: (context) => SettingScreen()));
-              }
-          ),
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const SettingScreen()));
+              }),
           ListTile(
               leading: const Icon(Icons.logout),
               title: const Text("Logout"),
-              onTap: () async {
-
-              }
-          ),
+              onTap: () async {}),
         ],
       ),
     );
   }
 }
 
-Drawer buildDrawerLayout(BuildContext context){
+Drawer buildDrawerLayout(BuildContext context) {
   return Drawer(
     child: SingleChildScrollView(
       child: Container(
-      child: ListView(
-        children: [
-          DrawerHeader(
-           // padding: EdgeInsets.zero,
+        child: ListView(
+          children: [
+            DrawerHeader(
+              // padding: EdgeInsets.zero,
               child: Container(
                 decoration: const BoxDecoration(
                   gradient: LinearGradient(
@@ -109,7 +117,7 @@ Drawer buildDrawerLayout(BuildContext context){
                       //Colors.white,
                     ],
                     begin: Alignment.topCenter,
-                    end:  Alignment.bottomCenter,
+                    end: Alignment.bottomCenter,
                   ),
                 ),
                 child: Stack(
@@ -118,56 +126,61 @@ Drawer buildDrawerLayout(BuildContext context){
                       alignment: Alignment.bottomCenter,
                       child: ListTile(
                         leading: CircleAvatar(
-                        backgroundColor: Colors.grey, // image profile
+                          backgroundColor: Colors.grey, // image profile
                         ),
-                        title: Text("username",style: TextStyle(color: Colors.white),),
+                        title: Text(
+                          "username",
+                          style: TextStyle(color: Colors.white),
+                        ),
                       ),
-
                     ),
-
                   ],
                 ),
+              ),
             ),
-          ),
-          ListTile(
-            leading: const Icon(Icons.group),
-            title: const Text("New Group"),
-            onTap: () {
-                Navigator.pop(context);
-                Navigator.push(context,MaterialPageRoute(builder: (context) => GroupScreen()));
-              }
-          ),
-          ListTile(
-            leading: const Icon(Icons.speaker),
-            title: const Text("New Channel"),
-            onTap: () {
-              Navigator.pop(context);
-              Navigator.push(context,MaterialPageRoute(builder: (context) => const ContactScreen()));
-            }
-          ),
-          ListTile(
-            leading: const Icon(Icons.person),
-            title: const Text("Contacts"),
-            onTap: () { // مخاطبین بساز
-                Navigator.pop(context);
-                Navigator.push(context,MaterialPageRoute(builder: (context) => ChannelScreen()));
-              }
-          ),
-          ListTile(
-            leading: const Icon(Icons.settings),
-            title: const Text("Settings"),
-            onTap: () {
-              Navigator.pop(context);
-              Navigator.push(context,MaterialPageRoute(builder: (context) => SettingScreen()));
-            }
-          ),
-          ListTile(
-              leading: const Icon(Icons.logout),
-              title: const Text("Logout"),
-              onTap: () async {
-
-              }
-            ),
+            ListTile(
+                leading: const Icon(Icons.group),
+                title: const Text("New Group"),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const GroupScreen()));
+                }),
+            ListTile(
+                leading: const Icon(Icons.speaker),
+                title: const Text("New Channel"),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ContactScreen()));
+                }),
+            ListTile(
+                leading: const Icon(Icons.person),
+                title: const Text("Contacts"),
+                onTap: () {
+                  // مخاطبین بساز
+                  Navigator.pop(context);
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ChannelScreen()));
+                }),
+            ListTile(
+                leading: const Icon(Icons.settings),
+                title: const Text("Settings"),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => const SettingScreen()));
+                }),
+            ListTile(
+                leading: const Icon(Icons.logout),
+                title: const Text("Logout"),
+                onTap: () async {}),
           ],
         ),
       ),

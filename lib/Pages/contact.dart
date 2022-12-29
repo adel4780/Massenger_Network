@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 class ContactScreen extends StatefulWidget {
   const ContactScreen({Key? key}) : super(key: key);
 
@@ -13,7 +14,6 @@ class _ContactScreenState extends State<ContactScreen> {
       appBar: AppBar(
         title: const Text("Contacts"),
         automaticallyImplyLeading: false,
-
       ),
     );
   }

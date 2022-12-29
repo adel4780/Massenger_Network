@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:massenger/Component/inputfields.dart';
 import 'package:validators/validators.dart';
+
 class FormSignUpContainer extends StatelessWidget {
   final formkey;
 
-  FormSignUpContainer({required this.formkey,required,});
+  const FormSignUpContainer({
+    super.key,
+    required this.formkey,
+    required,
+  });
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,11 +25,11 @@ class FormSignUpContainer extends StatelessWidget {
                   hint: 'e-mail',
                   obscure: false,
                   icon: Icons.person_outline,
-                  validator: ( value){  // mistake درستش کن
-                    if(! isEmail(value!)){
+                  validator: (value) {
+                    // mistake درستش کن
+                    if (!isEmail(value!)) {
                       return "E-mail is not valid";
-                    }
-                    else {
+                    } else {
                       return null;
                     }
                   },
@@ -33,11 +38,11 @@ class FormSignUpContainer extends StatelessWidget {
                   hint: 'Phone: 09...',
                   obscure: false,
                   icon: Icons.phone,
-                  validator: ( value){  // mistake درستش کن
-                    if(value!.toString().length < 11){
+                  validator: (value) {
+                    // mistake درستش کن
+                    if (value!.toString().length < 11) {
                       return "Phone = 11 character";
-                    }
-                    else {
+                    } else {
                       return null;
                     }
                   },
@@ -46,11 +51,11 @@ class FormSignUpContainer extends StatelessWidget {
                   hint: 'password',
                   obscure: true,
                   icon: Icons.lock,
-                  validator: ( value){
-                    if(value!.toString().length < 5){  // mistake
+                  validator: (value) {
+                    if (value!.toString().length < 5) {
+                      // mistake
                       return "Password > 5 character";
-                    }
-                    else {
+                    } else {
                       return null;
                     }
                   },
@@ -63,4 +68,3 @@ class FormSignUpContainer extends StatelessWidget {
     );
   }
 }
-
