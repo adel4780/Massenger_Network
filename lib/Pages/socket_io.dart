@@ -2,16 +2,15 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import '../chatmodel/chat_model.dart';
-
 class SocketIoScreen extends StatefulWidget {
-  const SocketIoScreen({Key? key}) : super(key: key);
-
+  final ChatModel data ;
+  final int idx;
+  const SocketIoScreen({super.key, required this.data, required this.idx, });
   @override
   State<SocketIoScreen> createState() => _SocketIoState();
 }
 
 class _SocketIoState extends State<SocketIoScreen> {
-
   late TextEditingController textcontroller;
   List<ChatModel> messages = [];
   late int userId;
@@ -20,7 +19,9 @@ class _SocketIoState extends State<SocketIoScreen> {
     super.initState();
     // TODO: implement initState
     textcontroller = TextEditingController();
-    messages.addAll(dummyData);
+    messages.add(widget.data);
+    // Erfan
+    // UserID bara inke mak payam midam ya on payam mide
     userId = Random().nextInt(1000);
   }
   @override
@@ -31,13 +32,32 @@ class _SocketIoState extends State<SocketIoScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Chat"),
+        automaticallyImplyLeading: false,
+        //title: const Text("Chat"),
+        title: Row(
+          children: [
+            GestureDetector(
+              onTap: () => Navigator.pop(context),
+              child: const Icon(Icons.arrow_back),
+            ),
+            const SizedBox(width: 10,),
+            const CircleAvatar(
+              backgroundColor: Colors.grey,
+              //backgroundImage: ,
+            ),
+            const SizedBox(width: 10,),
+            Text(widget.data.name, style:const TextStyle(fontSize: 16),),
+          ],
+        ),
       ),
       body: Stack(
         children: [
           Container(
             decoration: const BoxDecoration(
-              color: Colors.white,
+              image: DecorationImage(
+                image: AssetImage('img/chat.jpg'),
+                fit: BoxFit.fill,
+              ),
             ),
           ),
           Column(
@@ -53,6 +73,7 @@ class _SocketIoState extends State<SocketIoScreen> {
                             margin: const EdgeInsets.only(bottom: 5),
                             padding: const EdgeInsets.only(top: 5, bottom: 5, left: 10, right: 10),
                             decoration: BoxDecoration(
+                              // UserID bara inke mak payam midam ya on payam mide
                               color: userId == messages[index].id
                               ? Colors.blueAccent
                               : Colors.white
@@ -102,7 +123,9 @@ class _SocketIoState extends State<SocketIoScreen> {
                       ),
                     ),
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        // Erfan Ersal Payam ba soocket
+                      },
                       icon: const Icon(Icons.send),
                     ),
                   ],

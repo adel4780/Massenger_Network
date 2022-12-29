@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:massenger/Pages/socket_io.dart';
 import 'package:massenger/massenger_home.dart';
 import 'package:massenger/chatmodel/chat_model.dart';
 class SingleChatScreen extends StatelessWidget {
   final ChatModel data ;
-
-  SingleChatScreen({required this.data});
+  late TextEditingController textcontroller;
+  List<ChatModel> messages = [];
+  SingleChatScreen({required this.data,}){
+    messages.addAll(dummyData);
+    textcontroller = TextEditingController();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,31 +31,7 @@ class SingleChatScreen extends StatelessWidget {
           ],
         ),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text("Chat Page${data.name}", style: const TextStyle(fontSize: 20),),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ElevatedButton(
-                  onPressed: () { // یک پیج بساز
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => MassengerHome()));
-                  },
-                  child: const Text("Second Page"),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: const Text("Back"),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
+
     );
   }
 }
