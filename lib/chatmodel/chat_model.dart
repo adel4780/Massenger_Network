@@ -22,7 +22,8 @@ List<ChatModel> dummyData = [
       message: "Hello",
       time: "15:20",
       avatarUrl:
-          "https://www.daneshjooyar.com/wp-content/themes/daneshlight/Images/man-with-laptop.png"),
+          "https://www.daneshjooyar.com/wp-content/themes/daneshlight/Images/man-with-laptop.png"
+  ),
   ChatModel(
       id: 1000,
       name: "Hashem",

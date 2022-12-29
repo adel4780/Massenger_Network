@@ -173,7 +173,7 @@ class _MassengerHomeState extends State<MassengerHome>
                             builder: (context) => const GroupScreen()));
                   }),
               ListTile(
-                  leading: const Icon(Icons.speaker),
+                  leading: const Icon(Icons.newspaper),
                   title: const Text("New Channel"),
                   onTap: () {
                     Navigator.pop(context);
@@ -183,7 +183,7 @@ class _MassengerHomeState extends State<MassengerHome>
                             builder: (context) => const ContactScreen()));
                   }),
               ListTile(
-                  leading: const Icon(Icons.person),
+                  leading: const Icon(Icons.contact_mail),
                   title: const Text("Contacts"),
                   onTap: () {
                     // مخاطبین بساز
@@ -194,7 +194,7 @@ class _MassengerHomeState extends State<MassengerHome>
                             builder: (context) => const ChannelScreen()));
                   }),
               ListTile(
-                  leading: const Icon(Icons.settings),
+                  leading: const Icon(Icons.account_box),
                   title: const Text("Profile"),
                   onTap: () {
                     Navigator.pop(context);
