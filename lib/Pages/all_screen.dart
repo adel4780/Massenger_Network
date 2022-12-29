@@ -22,7 +22,7 @@ class AllScreen extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                         builder: (context) =>
-                            SingleChatScreen(data: dummyData[index])));
+                            SingleChatScreen(data: dummyData[index], idx:index)));
               },
               child: ListTile(
                 leading: CircleAvatar(
