@@ -11,6 +11,8 @@ import 'package:massenger/ProfileComponent/widget/button_widget.dart';
 import 'package:massenger/ProfileComponent/widget/profile_widget.dart';
 import 'package:massenger/ProfileComponent/widget/textfield_widget.dart';
 
+import '../../services/socket_service.dart';
+
 class EditProfilePage extends StatefulWidget {
   @override
   _EditProfilePageState createState() => _EditProfilePageState();
@@ -34,7 +36,13 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       imagePath: user.imagePath,
                       isEdit: true,
                       //Erfan Choose profile Picture
-                      onClicked: () async {},
+                      //adel tooye onclick neveshtam nemidoonam doroste ya na jash, dorost bood bepak.
+                      //adel profile chie?
+                      onClicked: () async {
+                        var message;
+                        SocketService.setReceiverID("Server");
+                        SocketService.sendMessage("SetProfile",message);
+                      },
                     ),
                     const SizedBox(height: 24),
                     TextFieldWidget(
@@ -66,7 +74,10 @@ class _EditProfilePageState extends State<EditProfilePage> {
     text: 'Save',
     onClicked: () {
       // Erfan
-      // Edit Changed Information
+      // Edit Changed Information //adel daghighan chiaa? esm attributa?
+      var message ;
+      SocketService.setReceiverID("Server");
+      SocketService.sendMessage("ChangeInfo",message.toString());
       Navigator.pop(context);
       Navigator.push(context,MaterialPageRoute(builder: (context) =>ProfilePage()));
     },

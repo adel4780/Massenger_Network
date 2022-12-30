@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 
+import '../services/socket_service.dart';
+
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
@@ -20,7 +22,8 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   startTime() {
-    var duration = const Duration(seconds: 5);
+    var duration = const Duration(seconds: 3);
+    SocketService.connectAndListen();
     return Timer(duration, () {
       Navigator.of(context).pushNamed("/login");
     });
