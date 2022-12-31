@@ -7,6 +7,8 @@ import 'package:massenger/Pages/channel_screen.dart';
 import 'package:massenger/Pages/create_chatscreen.dart';
 import 'package:massenger/Pages/setting_screen.dart';
 import 'package:massenger/search.dart';
+import 'Group/CreateGroup.dart';
+import 'Group/SelectContact.dart';
 import 'Pages/contact.dart';
 import 'ProfileComponent/page/profile_page.dart';
 
@@ -136,17 +138,17 @@ class _MassengerHomeState extends State<MassengerHome>
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const GroupScreen()));
+                            builder: (context) => SelectContact()));
                   }),
               ListTile(
-                  leading: const Icon(Icons.newspaper),
+                  leading: const Icon(Icons.campaign_outlined),
                   title: const Text("New Channel"),
                   onTap: () {
                     Navigator.pop(context);
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const ContactScreen()));
+                            builder: (context) => SelectContact()));
                   }),
               ListTile(
                   leading: const Icon(Icons.contact_mail),
@@ -157,10 +159,10 @@ class _MassengerHomeState extends State<MassengerHome>
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const ChannelScreen()));
+                            builder: (context) => SelectContact()));
                   }),
               ListTile(
-                  leading: const Icon(Icons.account_box),
+                  leading: const Icon(Icons.account_circle_outlined),
                   title: const Text("Profile"),
                   onTap: () {
                     Navigator.pop(context);
@@ -179,11 +181,13 @@ class _MassengerHomeState extends State<MassengerHome>
                         MaterialPageRoute(
                             builder: (context) => SettingScreen()));
                   }),
-
               ListTile(
                   leading: const Icon(Icons.logout),
                   title: const Text("Logout"),
-                  onTap: () async {}),
+                  onTap: () async {
+                    // Erfan
+                    // LogOut az Account
+                  }),
             ],
           ),
         ), //->

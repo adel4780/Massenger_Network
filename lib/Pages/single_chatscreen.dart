@@ -116,7 +116,6 @@ class _SingleChatScreen extends State<SingleChatScreen> {
                               message: msg,
                               time: '', // ?
                               avatarUrl: '',
-                              select: false,
                             )
                             );
                           });
