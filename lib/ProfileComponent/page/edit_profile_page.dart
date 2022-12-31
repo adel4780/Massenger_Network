@@ -21,8 +21,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
 
   @override
   Widget build(BuildContext context) =>
-      ThemeSwitchingArea(
-        child: Builder(
+      Builder(
           builder: (context) =>
               Scaffold(
                 appBar: buildAppBar(context),
@@ -60,8 +59,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   ],
                 ),
               ),
-        ),
-      );
+        );
   Widget buildSaveButton(BuildContext context) => ButtonWidget(
     text: 'Save',
     onClicked: () {

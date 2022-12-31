@@ -1,11 +1,14 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:massenger/Pages/all_screen.dart';
 import 'package:massenger/Pages/group_screen.dart';
 import 'package:massenger/Pages/channel_screen.dart';
 import 'package:massenger/Pages/create_chatscreen.dart';
 import 'package:massenger/Pages/setting_screen.dart';
+import 'package:massenger/search.dart';
 import 'Pages/contact.dart';
-import 'Pages/profile.dart';
+import 'ProfileComponent/page/profile_page.dart';
 
 class MassengerHome extends StatefulWidget {
   const MassengerHome({super.key});
@@ -16,31 +19,31 @@ class MassengerHome extends StatefulWidget {
 
 class _MassengerHomeState extends State<MassengerHome>
     with SingleTickerProviderStateMixin {
-  //**/
   late TabController tabController;
-  late Map<String, SliverAppBar> appBarList;
-  String _currentAppBar = 'mainAppBar';
-
+  late SliverAppBar mainAppBar;
   @override
   void initState() {
     super.initState();
     tabController = TabController(initialIndex: 0, length: 3, vsync: this);
-    SliverAppBar mainAppBar = SliverAppBar(
+    mainAppBar = SliverAppBar(
       // search, setting
       title: Text("Massenger"),
       pinned: true,
       // pin appBar on Top
       floating: true,
-      automaticallyImplyLeading: false,
+      automaticallyImplyLeading: true,
       elevation: 5,
       // shadow
       actions: [
         GestureDetector(
           child: const Icon(Icons.search),
           onTap: () {
-            setState(() {
-              _currentAppBar = 'searchAppBar';
-            });
+            // Navigator
+            showSearch(
+                context: context,
+                delegate: SearchScreen(),
+            );
+            //Navigator.push(context, MaterialPageRoute(builder: (context) => SearchScreen()));
           },
         ), //->
         const Padding(padding: EdgeInsets.symmetric(horizontal: 5.0)),
@@ -60,35 +63,6 @@ class _MassengerHomeState extends State<MassengerHome>
             ),
           ]),
     );
-    SliverAppBar searchAppBar = SliverAppBar(
-      // search, setting
-      title: const TextField(
-        decoration: InputDecoration(
-          border: InputBorder.none,
-          hintText: "Search...",
-        ),
-      ),
-      pinned: true,
-      // pin appBar on Top ->
-      elevation: 5,
-      // shadow
-      backgroundColor: Colors.white,
-      leading: GestureDetector(
-        child: const Padding(
-            padding: EdgeInsets.only(right: 12),
-            child: Icon(Icons.arrow_back, color: Colors.black)),
-        // search color
-        onTap: () {
-          setState(() {
-            _currentAppBar = 'mainAppBar';
-          });
-        },
-      ),
-    );
-    appBarList = <String, SliverAppBar>{
-      'mainAppBar': mainAppBar,
-      'searchAppBar': searchAppBar,
-    };
   }
 
   Future<bool> willpop() async {
@@ -101,16 +75,16 @@ class _MassengerHomeState extends State<MassengerHome>
                 title: const Text("Do You Want to Exit?"),
                 actions: [
                   ElevatedButton(
-                    onPressed: () => Navigator.of(context).pop(true), //exit(0),
+                    onPressed: () => Navigator.of(context).pop(false),
+                    child: const Text('No'),
+                  ),
+                  ElevatedButton(
+                    onPressed: () => exit(0), //exit(0),
                     child: const Text(
                       'Yes',
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ),
-                  ElevatedButton(
-                    onPressed: () => Navigator.of(context).pop(false),
-                    child: const Text('No'),
-                  )
                 ],
               ),
             );
@@ -193,7 +167,7 @@ class _MassengerHomeState extends State<MassengerHome>
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => ProfileScreen()));
+                            builder: (context) => ProfilePage()));
                   }),
               ListTile(
                   leading: const Icon(Icons.settings),
@@ -215,10 +189,9 @@ class _MassengerHomeState extends State<MassengerHome>
         ), //->
         body: NestedScrollView(
           headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
-            return <Widget>[Container(child: appBarList[_currentAppBar])];
+            return <Widget>[Container(child: mainAppBar)];
           },
-          body: _currentAppBar == 'mainAppBar'
-              ? TabBarView(
+          body: TabBarView(
                   controller: tabController,
                   children:  [
                     AllScreen(),
@@ -226,9 +199,6 @@ class _MassengerHomeState extends State<MassengerHome>
                     ChannelScreen(),
                   ],
                 )
-              : const Center(
-                  child: Text('Search'),
-                ),
         ),
         floatingActionButton: FloatingActionButton(
           backgroundColor: Colors.blue,
@@ -246,4 +216,7 @@ class _MassengerHomeState extends State<MassengerHome>
       ),
     );
   }
+}
+class GenericSearch<T>{
+
 }

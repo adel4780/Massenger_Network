@@ -17,9 +17,7 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     final user = UserPreferences.myUser;
 
-    return ThemeSwitchingArea(
-      child: Builder(
-        builder: (context) => Scaffold(
+    return Scaffold(
           appBar: buildAppBar(context),
           body: ListView(
             physics: BouncingScrollPhysics(),
@@ -40,9 +38,7 @@ class _ProfilePageState extends State<ProfilePage> {
               buildBio(user),
             ],
           ),
-        ),
-      ),
-    );
+        );
   }
 
   Widget buildName(User user) => Column(

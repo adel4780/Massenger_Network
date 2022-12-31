@@ -33,7 +33,6 @@ class _SingleChatScreen extends State<SingleChatScreen> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        //title: const Text("Chat"),
         title: Row(
           children: [
             GestureDetector(
@@ -47,6 +46,16 @@ class _SingleChatScreen extends State<SingleChatScreen> {
             ),
             const SizedBox(width: 10,),
             Text(widget.data.name, style:const TextStyle(fontSize: 16),),
+            const SizedBox(width: 200,),
+            GestureDetector(
+              onTap: () {
+                // Erfan
+                // Add to contacts
+                // Yekbar Bezane
+                // Tekrari ham nabashe
+              },
+              child: const Icon(Icons.add),
+            ),
           ],
         ),
       ),
@@ -105,6 +114,7 @@ class _SingleChatScreen extends State<SingleChatScreen> {
                               message: msg,
                               time: '', // ?
                               avatarUrl: '',
+                              select: false,
                             )
                             );
                           });
