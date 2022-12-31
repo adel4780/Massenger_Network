@@ -14,6 +14,7 @@ class SocketService {
 
   static Stream<Chat> get getResponse =>
       _socketResponse.stream.asBroadcastStream();
+
   static Stream<List<String>> get userResponse =>
       _userResponse.stream.asBroadcastStream();
 
@@ -22,6 +23,9 @@ class SocketService {
   }
 
   static void sendMessage(String type, String message) {
+    if (_receiverID == '') {
+      _receiverID = "Server";
+    }
     _socket.emit(
         'message',
         Chat(
@@ -44,7 +48,6 @@ class SocketService {
             .build());
 
     _socket.connect();
-
     //When an event recieved from server, data is added to the stream
     _socket.on('message', (data) {
       _socketResponse.sink.add(Chat.fromRawJson(data));
@@ -68,3 +71,4 @@ class SocketService {
     _userResponse.close();
   }
 }
+

@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import '../chatmodel/chat_model.dart';
+import '../services/socket_service.dart';
 class SingleChatScreen extends StatefulWidget {
   final ChatModel data ;
   final int idx;
@@ -11,14 +12,14 @@ class SingleChatScreen extends StatefulWidget {
 }
 
 class _SingleChatScreen extends State<SingleChatScreen> {
-  late TextEditingController textcontroller;
+  late TextEditingController textController;
   List<ChatModel> messages = [];
   late int userId;
   @override
   void initState() {
     super.initState();
     // TODO: implement initState
-    textcontroller = TextEditingController();
+    textController = TextEditingController();
     messages.add(widget.data);
     // Erfan
     // UserID bara inke mak payam midam ya on payam mide
@@ -30,6 +31,7 @@ class _SingleChatScreen extends State<SingleChatScreen> {
   }
   @override
   Widget build(BuildContext context) {
+    var focusCode = FocusNode();
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -105,8 +107,8 @@ class _SingleChatScreen extends State<SingleChatScreen> {
                   children: [
                     IconButton(
                       onPressed: () {
-                        if(textcontroller.text.isNotEmpty){ // check
-                          String msg = textcontroller.text;
+                        if(textController.text.isNotEmpty){ // check
+                          String msg = textController.text;
                           setState(() {
                             messages.add(ChatModel(
                               id: userId,
@@ -118,14 +120,14 @@ class _SingleChatScreen extends State<SingleChatScreen> {
                             )
                             );
                           });
-                          textcontroller.text = '';
+                          textController.text = '';
                         }
                       },
                       icon: const Icon(Icons.insert_emoticon),
                     ),
                     Expanded(
                       child: TextField(
-                        controller: textcontroller,
+                        controller: textController,
                         decoration: const InputDecoration(
                           hintText: "type",
                           border: InputBorder.none,
@@ -134,7 +136,12 @@ class _SingleChatScreen extends State<SingleChatScreen> {
                     ),
                     IconButton(
                       onPressed: () {
-                        // Erfan Ersal Payam ba soocket
+                        var message = textController.text;
+                        if (message.isEmpty) return;
+                        SocketService.setReceiverID("null");//adel be ki befreste?
+                        SocketService.sendMessage("PV",message);
+                        textController.text = '';
+                        focusCode.requestFocus();//ADEL bara bastan kiborde mobile harja niaz bood bezan inja albate nemikhad fek konam
                       },
                       icon: const Icon(Icons.send),
                     ),

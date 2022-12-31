@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../Component/form_sign_up.dart';
+import '../services/socket_service.dart';
 
 class SingUpScreen extends StatefulWidget {
   const SingUpScreen({Key? key}) : super(key: key);
@@ -14,6 +15,7 @@ class _SingUpScreenState extends State<SingUpScreen> {
   late String userName;
   late String emailValue;
   late String passwordValue;
+  late String phoneNumberValue;
   @override
   Widget build(BuildContext context) {
     var page = MediaQuery.of(context).size;
@@ -57,8 +59,16 @@ class _SingUpScreenState extends State<SingUpScreen> {
             ),
             GestureDetector(
               onTap: () async {
-                // Erfan
-                // save Phone, Email, Password in server
+                emailValue="e@e.com";
+                passwordValue="1234";
+                phoneNumberValue="0987";
+                Map<String,String> message ={
+                  "email": emailValue,
+                  "password": passwordValue,
+                "phone": phoneNumberValue};
+                //adel etelaat set nashode :'(
+                SocketService.setReceiverID("Server");
+                SocketService.sendMessage("SignUp",message.toString());
                 Navigator.of(context).pushNamed("/home");
               },
               child: Container(

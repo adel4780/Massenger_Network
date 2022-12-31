@@ -8,6 +8,8 @@ import '../Component/form.dart';
 import 'package:http/http.dart' as http;
 import 'package:massenger/Pages/sign_up.dart';
 
+import '../services/socket_service.dart';
+
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -86,7 +88,15 @@ class Login extends State<LoginScreen> {
             GestureDetector(
               onTap: () async {
                 //Erfan 
-                //this is for login with Phone and password
+                //this is for login with Phone and password//
+                emailValue="e@e.com";
+                passwordValue="1234";
+                Map<String,String> message ={
+                 "email": emailValue,
+                 "password": passwordValue};
+                //adel etelaat set nashode :'(
+                SocketService.setReceiverID("Server");
+                SocketService.sendMessage("LogIn",message.toString());
                 Navigator.of(context).pushNamed("/home");
               },
               child: Container(
