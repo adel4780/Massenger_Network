@@ -7,9 +7,7 @@ import 'package:massenger/Pages/channel_screen.dart';
 import 'package:massenger/Pages/create_chatscreen.dart';
 import 'package:massenger/Pages/setting_screen.dart';
 import 'package:massenger/search.dart';
-import 'Group/CreateGroup.dart';
 import 'Group/SelectContact.dart';
-import 'Pages/contact.dart';
 import 'ProfileComponent/page/profile_page.dart';
 
 class MassengerHome extends StatefulWidget {
