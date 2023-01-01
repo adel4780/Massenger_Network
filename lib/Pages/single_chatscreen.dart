@@ -23,7 +23,7 @@ class _SingleChatScreen extends State<SingleChatScreen> {
     messages.add(widget.data);
     // Erfan
     // UserID bara inke mak payam midam ya on payam mide
-    userId = Random().nextInt(1000);
+    // adel userid niaz nis socket id has
   }
   @override
   void dispose(){
@@ -53,6 +53,7 @@ class _SingleChatScreen extends State<SingleChatScreen> {
               onTap: () {
                 // Erfan
                 // Add to contacts
+                //adel in mage be server kari dare? [emoji  of tafakkor]🤔
                 // Yekbar Bezane
                 // Tekrari ham nabashe
               },

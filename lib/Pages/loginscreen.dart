@@ -87,8 +87,6 @@ class Login extends State<LoginScreen> {
             ),
             GestureDetector(
               onTap: () async {
-                //Erfan 
-                //this is for login with Phone and password//
                 emailValue="e@e.com";
                 passwordValue="1234";
                 Map<String,String> message ={
