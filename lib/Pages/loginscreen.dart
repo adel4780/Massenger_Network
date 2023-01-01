@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:massenger/massenger_home.dart';
 import 'package:massenger/chatmodel/chat_model.dart';
-//import 'package:shared_preferences/shared_preferences.dart';
 import '../Component/form.dart';
 import 'package:http/http.dart' as http;
 import 'package:massenger/Pages/sign_up.dart';
@@ -87,8 +86,6 @@ class Login extends State<LoginScreen> {
             ),
             GestureDetector(
               onTap: () async {
-                //Erfan 
-                //this is for login with Phone and password//
                 emailValue="e@e.com";
                 passwordValue="1234";
                 Map<String,String> message ={

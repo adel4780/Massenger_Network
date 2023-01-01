@@ -31,8 +31,8 @@ class PutChannelName extends StatelessWidget {
           const SizedBox(height: 25),
           ChannelWidget(
             //Erfan Choose Group Picture with Camera System
-            //adel tooye onclick neveshtam nemidoonam doroste ya na jash, dorost bood bepak.
-            //adel profile chie?
+            //adel in dige naaamoosan be server kari nadare
+            // ye modele group besaz baad marhale aakhar man bayad befrestamesh be server
             onClicked: () async {
 
             },

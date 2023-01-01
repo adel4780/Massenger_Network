@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:massenger/ProfileComponent/page/profile_page.dart';
 import '../chatmodel/chat_model.dart';
@@ -24,7 +22,7 @@ class _SingleChatScreen extends State<SingleChatScreen> {
     messages.add(widget.data);
     // Erfan
     // UserID bara inke mak payam midam ya on payam mide
-    userId = Random().nextInt(1000);
+    // adel userid niaz nis socket id has
   }
   @override
   void dispose(){
@@ -54,20 +52,8 @@ class _SingleChatScreen extends State<SingleChatScreen> {
             // Erfan
             // Profile Friend Information
             Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage()));
-          } ,
-        ),
-        actions: [
-          GestureDetector(
-            onTap: () {
-              // Erfan
-              // Add to contacts
-              // Yekbar Bezane
-              // Tekrari ham nabashe
-            },
-            child: const Icon(Icons.add),
-          ),
-          const Padding(padding: EdgeInsets.symmetric(horizontal: 10)),
-        ],
+          }
+          ) ,
       ),
       body: Stack(
         children: [
