@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:massenger/ProfileComponent/page/profile_page.dart';
 import '../chatmodel/chat_model.dart';
 import '../services/socket_service.dart';
 class SingleChatScreen extends StatefulWidget {
@@ -35,31 +36,38 @@ class _SingleChatScreen extends State<SingleChatScreen> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Row(
-          children: [
-            GestureDetector(
-              onTap: () => Navigator.pop(context),
-              child: const Icon(Icons.arrow_back),
-            ),
-            const SizedBox(width: 10,),
-            const CircleAvatar(
-              backgroundColor: Colors.grey,
-              //backgroundImage: ,
-            ),
-            const SizedBox(width: 10,),
-            Text(widget.data.name, style:const TextStyle(fontSize: 16),),
-            const SizedBox(width: 200,),
-            GestureDetector(
-              onTap: () {
-                // Erfan
-                // Add to contacts
-                // Yekbar Bezane
-                // Tekrari ham nabashe
-              },
-              child: const Icon(Icons.add),
-            ),
-          ],
+        leading: BackButton(),
+        title: GestureDetector(
+          child: Row(
+              children:[
+                const CircleAvatar(
+                  backgroundColor: Colors.grey,
+                  // Ax profile
+                  //backgroundImage: ,
+
+                ),
+                const SizedBox(width: 10,),
+                Text(widget.data.name, style:const TextStyle(fontSize: 16),),
+              ],
+          ),
+          onTap: () {
+            // Erfan
+            // Profile Friend Information
+            Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage()));
+          } ,
         ),
+        actions: [
+          GestureDetector(
+            onTap: () {
+              // Erfan
+              // Add to contacts
+              // Yekbar Bezane
+              // Tekrari ham nabashe
+            },
+            child: const Icon(Icons.add),
+          ),
+          const Padding(padding: EdgeInsets.symmetric(horizontal: 10)),
+        ],
       ),
       body: Stack(
         children: [

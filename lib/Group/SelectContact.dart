@@ -2,8 +2,6 @@ import 'package:massenger/Group/ButtonCard.dart';
 import 'package:massenger/Group/CreateChannel.dart';
 import 'package:massenger/Group/CreateGroup.dart';
 import 'package:flutter/material.dart';
-import 'package:massenger/Pages/create_chatscreen.dart';
-
 import '../Pages/single_chatscreen.dart';
 import '../chatmodel/chat_model.dart';
 import '../search.dart';
@@ -118,9 +116,6 @@ class _SelectContactState extends State<SelectContact> {
                   ),
                 );
               }
-              /*return ContactCard(
-                contact: contacts[index - 2],
-              );*/
             }));
   }
 }

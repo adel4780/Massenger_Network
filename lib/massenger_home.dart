@@ -1,10 +1,8 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:massenger/Pages/all_screen.dart';
 import 'package:massenger/Pages/group_screen.dart';
 import 'package:massenger/Pages/channel_screen.dart';
-import 'package:massenger/Pages/create_chatscreen.dart';
 import 'package:massenger/Pages/setting_screen.dart';
 import 'package:massenger/search.dart';
 import 'Group/SelectContact.dart';
@@ -43,7 +41,6 @@ class _MassengerHomeState extends State<MassengerHome>
                 context: context,
                 delegate: SearchScreen(),
             );
-            //Navigator.push(context, MaterialPageRoute(builder: (context) => SearchScreen()));
           },
         ), //->
         const Padding(padding: EdgeInsets.symmetric(horizontal: 5.0)),
@@ -205,13 +202,13 @@ class _MassengerHomeState extends State<MassengerHome>
         floatingActionButton: FloatingActionButton(
           backgroundColor: Colors.blue,
           child: const Icon(
-            Icons.message,
+            Icons.edit,
             color: Colors.white,
           ),
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const CreateChatScreen()),
+              MaterialPageRoute(builder: (context) => SelectContact()),
             );
           },
         ),

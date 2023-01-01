@@ -5,9 +5,7 @@ AppBar buildAppBar(BuildContext context) {
     title: Text("Profile",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
     leading: BackButton(
         color: Colors.grey,
-        onPressed: () {
-          Navigator.pop(context);
-        }),
+        ),
     backgroundColor: Colors.transparent,
     elevation: 0,
   );
