@@ -13,25 +13,34 @@ class SelectContact extends StatefulWidget {
 List<ChatModel> contacts = [
   ChatModel(
     id: 1000,
+    email: "a@gmail.com",
+    phone: "09132235641",
     name: "Hessam",
-    message: "Hello",
-    time: "15:20",
+    messages: {
+      "10:05" : "Hello",
+    },
     avatarUrl:
     "img/person.png",
   ),
   ChatModel(
-    id: 1000,
+    id: 1001,
+    email: "b@gmail.com",
+    phone: "09132235634",
     name: "Hashem",
-    message: "Salam",
-    time: "14:30",
+    messages: {
+      "10:07" : "Hi",
+    },
     avatarUrl:
     "img/person.png",
   ),
   ChatModel(
-    id: 1000,
+    id: 1002,
     name: "Ali",
-    message: "Hola",
-    time: "10:45",
+    email: "c@gmail.com",
+    phone: "09132235658",
+    messages: {
+      "10:05" : "Salam",
+    },
     avatarUrl:
     "img/person.png",
   ),

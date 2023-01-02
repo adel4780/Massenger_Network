@@ -1,16 +1,22 @@
 class ChatModel {
   late final int id;
+  late final String email;
+  late final String phone;
   late final String name;
-  late final String message;
-  late final String time;
+  late final Map<String,String> messages ; //Map<String,String>
   late final String avatarUrl;
   late bool select;
   ChatModel(
-      {required this.id,
+      {
+      required this.email,
+      required this.phone,
+      required this.id,
       required this.name,
-      required this.message,
-      required this.time,
-      required this.avatarUrl, this.select = false});
+      required this.avatarUrl,
+      this.select = false,
+      required this.messages,
+      }
+  );
  /* ChatModel.formChatModel(int id,String name, String avatarUrl){
    this.id = id;
    this.name = name;
@@ -24,25 +30,34 @@ class ChatModel {
 List<ChatModel> dummyData = [
   ChatModel(
       id: 1000,
+      email: "a@gmail.com",
+      phone: "09132235641",
       name: "Hessam",
-      message: "Hello",
-      time: "15:20",
+      messages: {
+        "10:05" : "Hello",
+      },
       avatarUrl:
           "img/person.png",
   ),
   ChatModel(
-      id: 1000,
+      id: 1001,
+      email: "b@gmail.com",
+      phone: "09132235634",
       name: "Hashem",
-      message: "Salam",
-      time: "14:30",
+      messages: {
+      "10:07" : "Hi",
+    },
       avatarUrl:
       "img/person.png",
   ),
   ChatModel(
-      id: 1000,
+      id: 1002,
       name: "Ali",
-      message: "Hola",
-      time: "10:45",
+      email: "c@gmail.com",
+      phone: "09132235658",
+      messages: {
+      "10:05" : "Salam",
+    },
       avatarUrl:
       "img/person.png",
   ),

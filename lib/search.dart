@@ -25,7 +25,7 @@ class SearchScreen extends SearchDelegate{
   Widget buildResults(BuildContext context) {
     List<ChatModel> matchQuery = [];
     for(var account in searchTerms){
-      if(account.name.toLowerCase().contains(query.toLowerCase())){
+      if(account.phone.toLowerCase().contains(query.toLowerCase())){
         matchQuery.add(account);
       }
     }
@@ -50,12 +50,12 @@ class SearchScreen extends SearchDelegate{
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(matchQuery[index].name, style: const TextStyle(fontWeight: FontWeight.bold),),
-                    Text(matchQuery[index].time, style: const TextStyle(color: Colors.grey, fontSize: 14),)
+                    Text(matchQuery[index].messages.keys.last, style: const TextStyle(color: Colors.grey, fontSize: 14),)
                   ],
                 ),
                 subtitle: Container(
                   padding: const EdgeInsets.only(top: 5),
-                  child: Text(matchQuery[index].message, style: const TextStyle(color: Colors.grey, fontSize: 15),),
+                  child: Text(matchQuery[index].messages.values.last, style: const TextStyle(color: Colors.grey, fontSize: 15),),
                 ),
               ),
             ),
@@ -68,7 +68,7 @@ class SearchScreen extends SearchDelegate{
   Widget buildSuggestions(BuildContext context) {
     List<ChatModel> matchQuery = [];
     for(var account in searchTerms){
-      if(account.name.toLowerCase().contains(query.toLowerCase())){
+      if(account.phone.toLowerCase().contains(query.toLowerCase())){
         matchQuery.add(account);
       }
     }
@@ -93,12 +93,12 @@ class SearchScreen extends SearchDelegate{
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(matchQuery[index].name, style: const TextStyle(fontWeight: FontWeight.bold),),
-                    Text(matchQuery[index].time, style: const TextStyle(color: Colors.grey, fontSize: 14),)
+                    Text(matchQuery[index].messages.keys.last, style: const TextStyle(color: Colors.grey, fontSize: 14),)
                   ],
                 ),
                 subtitle: Container(
                   padding: const EdgeInsets.only(top: 5),
-                  child: Text(matchQuery[index].message, style: const TextStyle(color: Colors.grey, fontSize: 15),),
+                  child: Text(matchQuery[index].messages.values.last, style: const TextStyle(color: Colors.grey, fontSize: 15),),
                 ),
               ),
             ),

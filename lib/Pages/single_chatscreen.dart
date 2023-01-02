@@ -9,17 +9,18 @@ class SingleChatScreen extends StatefulWidget {
   @override
   State<SingleChatScreen> createState() => _SingleChatScreen();
 }
-
+// Erfan
+// Ersal payam, List payam ha ro dorost kon
+// Payam Jadid biad to Map payam haye dota Karbar, ham message ham Time
 class _SingleChatScreen extends State<SingleChatScreen> {
   late TextEditingController textController;
-  List<ChatModel> messages = [];
-  late int userId;
+  late int userId = 1003;
   @override
   void initState() {
     super.initState();
     // TODO: implement initState
     textController = TextEditingController();
-    messages.add(widget.data);
+
     // Erfan
     // UserID bara inke mak payam midam ya on payam mide
     // adel userid niaz nis socket id has
@@ -39,10 +40,8 @@ class _SingleChatScreen extends State<SingleChatScreen> {
           child: Row(
               children:[
                 const CircleAvatar(
-                  backgroundColor: Colors.grey,
                   // Ax profile
-                  //backgroundImage: ,
-
+                  backgroundImage: AssetImage("img/person.png"),
                 ),
                 const SizedBox(width: 10,),
                 Text(widget.data.name, style:const TextStyle(fontSize: 16),),
@@ -53,7 +52,20 @@ class _SingleChatScreen extends State<SingleChatScreen> {
             // Profile Friend Information
             Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage()));
           }
-          ) ,
+         ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.add),
+            onPressed: (){
+            //Erfan
+            // Add User to contact List with data
+            setState(() {
+              icon: Icon(Icons.check);
+            });
+          },
+
+          ),
+        ],
       ),
       body: Stack(
         children: [
@@ -72,20 +84,21 @@ class _SingleChatScreen extends State<SingleChatScreen> {
                 child: Padding(
                   padding: const EdgeInsets.only(right: 10,left: 10,top: 10),
                   child: ListView.builder(
-                      itemCount: messages.length,
+                      itemCount: widget.data.messages.length,
                       itemBuilder: (BuildContext context, int index){
                         return Container(
                           margin: const EdgeInsets.only(bottom: 5),
                           padding: const EdgeInsets.only(top: 5, bottom: 5, left: 10, right: 10),
                           decoration: BoxDecoration(
                             // UserID bara inke mak payam midam ya on payam mide
-                              color: userId == messages[index].id
+                              color: userId == widget.data.id
                                   ? Colors.blueAccent
                                   : Colors.white
                           ),
                           child: Row(
                             children: [
-                              Text(messages[index].message),
+                              for(var i in widget.data.messages.values)
+                              Text(i),
                             ],
                           ),
                         );
@@ -101,22 +114,9 @@ class _SingleChatScreen extends State<SingleChatScreen> {
                   children: [
                     IconButton(
                       onPressed: () {
-                        if(textController.text.isNotEmpty){ // check
-                          String msg = textController.text;
-                          setState(() {
-                            messages.add(ChatModel(
-                              id: userId,
-                              name: '',
-                              message: msg,
-                              time: '', // ?
-                              avatarUrl: '',
-                            )
-                            );
-                          });
-                          textController.text = '';
-                        }
+
                       },
-                      icon: const Icon(Icons.insert_emoticon),
+                      icon: const Icon(Icons.attachment_outlined),
                     ),
                     Expanded(
                       child: TextField(
@@ -131,9 +131,14 @@ class _SingleChatScreen extends State<SingleChatScreen> {
                       onPressed: () {
                         var message = textController.text;
                         if (message.isEmpty) return;
-                        SocketService.setReceiverID("null");//adel be ki befreste? Erfan Are
-                        SocketService.sendMessage("PV",message);
-                        textController.text = '';
+                      //  SocketService.setReceiverID("null");//adel be ki befreste? be Taraf ba Id ke dadim behesh
+                      //  SocketService.sendMessage("PV",message);
+                        setState(() {
+                          widget.data.messages.addAll({"10:55":message});
+                          textController.text = '';
+                          //Erfan Time ro befrest az Server
+                          }
+                        );
                         focusCode.requestFocus();//ADEL bara bastan kiborde mobile harja niaz bood bezan inja albate nemikhad fek konam
                       },
                       icon: const Icon(Icons.send),
@@ -141,7 +146,6 @@ class _SingleChatScreen extends State<SingleChatScreen> {
                   ],
                 ),
               ),
-
             ],
           ),
         ],
