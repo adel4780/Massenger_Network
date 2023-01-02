@@ -1,10 +1,12 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:massenger/Group/CreateChannel.dart';
 import 'package:massenger/Pages/all_screen.dart';
 import 'package:massenger/Pages/group_screen.dart';
 import 'package:massenger/Pages/channel_screen.dart';
 import 'package:massenger/Pages/setting_screen.dart';
 import 'package:massenger/search.dart';
+import 'Group/CreateGroup.dart';
 import 'Group/SelectContact.dart';
 import 'ProfileComponent/page/profile_page.dart';
 
@@ -109,14 +111,15 @@ class _MassengerHomeState extends State<MassengerHome>
                       Align(
                         alignment: Alignment.centerLeft,
                         child: CircleAvatar(
-                          backgroundImage: NetworkImage("https://www.daneshjooyar.com/wp-content/themes/daneshlight/Images/man-with-laptop.png"),
+                          backgroundImage: AssetImage("img/person.png"),
                             radius: 30,// image profile
                           ),
                       ),
                       Align(
                         alignment: Alignment.center,
                         child:Text(
-                          //Erfan => username//adel hanooz balad nistam authoration konam bayad server kamel dashte basham :) ishalla farda
+                          //Erfan => username
+                          // adel hanooz balad nistam authoration konam bayad server kamel dashte basham :) ishalla farda
                           "username",
                           style: TextStyle(color: Colors.white, fontSize: 15),
                         ),
@@ -130,20 +133,16 @@ class _MassengerHomeState extends State<MassengerHome>
                   title: const Text("New Group"),
                   onTap: () {
                     Navigator.pop(context);
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => SelectContact()));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (builder) => CreateGroup()));
                   }),
               ListTile(
                   leading: const Icon(Icons.campaign_outlined),
                   title: const Text("New Channel"),
                   onTap: () {
                     Navigator.pop(context);
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => SelectContact()));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (builder) => CreateChannel()));
                   }),
               ListTile(
                   leading: const Icon(Icons.contact_mail),

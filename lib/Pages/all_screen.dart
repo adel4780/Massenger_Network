@@ -18,7 +18,7 @@ class AllScreen extends StatelessWidget {
                 },
               child: ListTile(
                 leading: CircleAvatar(
-                  backgroundImage: NetworkImage(dummyData[index].avatarUrl), // عکس پروفایل تغییر بده
+                  backgroundImage: AssetImage(dummyData[index].avatarUrl), // عکس پروفایل تغییر بده
                   backgroundColor: Colors.grey,
                 ),
                 title: Row(

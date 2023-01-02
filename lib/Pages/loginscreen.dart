@@ -91,14 +91,17 @@ class Login extends State<LoginScreen> {
                   formkey.currentState!.save();
                   // Erfan
                   // use phoneValue, password and Login with Server
-                  Map<String,String> message ={
+                /*  Map<String,String> message ={
                     "phone": phoneValue.toString(),
                     "password": passwordValue.toString(),
                   };
                   SocketService.setReceiverID("Server");
                   SocketService.sendMessage("LogIn",message.toString());
                   Navigator.of(context).pushNamed("/home");
+                */
+                  Navigator.of(context).pushNamed("/home");
                 }
+
               },
               child: Container(
                 margin: const EdgeInsets.only(bottom: 30),

@@ -10,35 +10,34 @@ class SelectContact extends StatefulWidget {
   @override
   _SelectContactState createState() => _SelectContactState();
 }
-
+List<ChatModel> contacts = [
+  ChatModel(
+    id: 1000,
+    name: "Hessam",
+    message: "Hello",
+    time: "15:20",
+    avatarUrl:
+    "img/person.png",
+  ),
+  ChatModel(
+    id: 1000,
+    name: "Hashem",
+    message: "Salam",
+    time: "14:30",
+    avatarUrl:
+    "img/person.png",
+  ),
+  ChatModel(
+    id: 1000,
+    name: "Ali",
+    message: "Hola",
+    time: "10:45",
+    avatarUrl:
+    "img/person.png",
+  ),
+  // -> ChatScreen
+];
 class _SelectContactState extends State<SelectContact> {
-  List<ChatModel> contacts = [
-    ChatModel(
-      id: 1000,
-      name: "Hessam",
-      message: "Hello",
-      time: "15:20",
-      avatarUrl:
-      "https://www.daneshjooyar.com/wp-content/themes/daneshlight/Images/man-with-laptop.png",
-    ),
-    ChatModel(
-      id: 1000,
-      name: "Hashem",
-      message: "Salam",
-      time: "14:30",
-      avatarUrl:
-      "https://www.daneshjooyar.com/wp-content/themes/daneshlight/Images/man-with-laptop.png",
-    ),
-    ChatModel(
-      id: 1000,
-      name: "Ali",
-      message: "Hola",
-      time: "10:45",
-      avatarUrl:
-      "https://www.daneshjooyar.com/wp-content/themes/daneshlight/Images/man-with-laptop.png",
-    ),
-    // -> ChatScreen
-  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -104,7 +103,7 @@ class _SelectContactState extends State<SelectContact> {
                   },
                   child: ListTile(
                     leading: CircleAvatar(
-                      backgroundImage: NetworkImage(contacts[index - 2].avatarUrl), // عکس پروفایل تغییر بده
+                      backgroundImage: AssetImage(contacts[index - 2].avatarUrl),
                       backgroundColor: Colors.grey,
                     ),
                     title: Row(
@@ -116,6 +115,8 @@ class _SelectContactState extends State<SelectContact> {
                   ),
                 );
               }
-            }));
+            },
+        ),
+    );
   }
 }

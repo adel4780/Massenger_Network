@@ -131,7 +131,7 @@ class _SingleChatScreen extends State<SingleChatScreen> {
                       onPressed: () {
                         var message = textController.text;
                         if (message.isEmpty) return;
-                        SocketService.setReceiverID("null");//adel be ki befreste?
+                        SocketService.setReceiverID("null");//adel be ki befreste? Erfan Are
                         SocketService.sendMessage("PV",message);
                         textController.text = '';
                         focusCode.requestFocus();//ADEL bara bastan kiborde mobile harja niaz bood bezan inja albate nemikhad fek konam

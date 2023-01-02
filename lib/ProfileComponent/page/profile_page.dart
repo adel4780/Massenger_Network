@@ -1,8 +1,6 @@
-import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:flutter/material.dart';
 import 'package:massenger/ProfileComponent/model/user.dart';
 import 'package:massenger/ProfileComponent/page/edit_profile_page.dart';
-import 'package:massenger/ProfileComponent/utils/user_preferences.dart';
 import 'package:massenger/ProfileComponent/widget/appbar_widget.dart';
 import 'package:massenger/ProfileComponent/widget/button_widget.dart';
 import 'package:massenger/ProfileComponent/widget/profile_widget.dart';
@@ -15,8 +13,6 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
-    final user = UserPreferences.myUser;
-
     return Scaffold(
           appBar: buildAppBar(context),
           body: ListView(
@@ -25,6 +21,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ProfileWidget(
                 imagePath: user.imagePath,
                 onClicked: () {
+                  Navigator.pop(context);
                   Navigator.of(context).push(
                     MaterialPageRoute(builder: (context) => EditProfilePage()),
                   );
@@ -34,23 +31,25 @@ class _ProfilePageState extends State<ProfilePage> {
               buildName(user),
               const SizedBox(height: 24),
               Center(child: buildEditButton()),
-              const SizedBox(height: 48),
-              buildBio(user),
             ],
           ),
         );
   }
-
   Widget buildName(User user) => Column(
         children: [
           Text(
             user.name,
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
           ),
-          const SizedBox(height: 4),
+          const SizedBox(height: 8),
           Text(
             user.email,
-            style: TextStyle(color: Colors.grey),
+            style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            user.phone,
+            style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold),
           )
         ],
       );
@@ -62,21 +61,4 @@ class _ProfilePageState extends State<ProfilePage> {
         },
       );
 
-  Widget buildBio(User user) => Container(
-        padding: EdgeInsets.symmetric(horizontal: 48),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Bio',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 16),
-            Text(
-              user.about,
-              style: TextStyle(fontSize: 16, height: 1.4),
-            ),
-          ],
-        ),
-      );
 }

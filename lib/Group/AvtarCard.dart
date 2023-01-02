@@ -15,7 +15,7 @@ class AvatarCard extends StatelessWidget {
             children: [
               CircleAvatar(
                 radius: 23,
-                backgroundImage: NetworkImage(chatModel.avatarUrl),
+                backgroundImage: AssetImage(chatModel.avatarUrl),
               ),
               const Positioned(
                 bottom: 0,

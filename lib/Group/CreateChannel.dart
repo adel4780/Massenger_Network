@@ -4,6 +4,8 @@ import 'package:massenger/Group/put_Channelname.dart';
 import 'package:massenger/chatmodel/chat_model.dart';
 import 'package:flutter/material.dart';
 import 'package:massenger/search.dart';
+
+import 'SelectContact.dart';
 class CreateChannel extends StatefulWidget {
   @override
   _CreateChannelState createState() => _CreateChannelState();
@@ -12,34 +14,14 @@ class CreateChannel extends StatefulWidget {
 // Create Group, SelectContact, Contact Card
 // Chat Model, Avatar Card
 class _CreateChannelState extends State<CreateChannel> {
-  List<ChatModel> contacts = [
-    ChatModel(
-      id: 1000,
-      name: "Hessam",
-      message: "Hello",
-      time: "15:20",
-      avatarUrl:
-      "",
-    ),
-    ChatModel(
-      id: 1000,
-      name: "Hashem",
-      message: "Salam",
-      time: "14:30",
-      avatarUrl:
-      "",
-    ),
-    ChatModel(
-      id: 1000,
-      name: "Ali",
-      message: "Hola",
-      time: "10:45",
-      avatarUrl:
-      "",
-    ),
-    // -> ChatScreen
-  ];
   List<ChatModel> Channelmember = [];
+  @override
+  void initState() {
+    for(var user in contacts){
+      user.select = false;
+    }
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -28,7 +28,7 @@ class FormSignUpContainer extends StatelessWidget {
                   obscure: false,
                   icon: Icons.mail,
                   validator: (value) {
-                    // mistake درستش کن
+
                     if (!isEmail(value!)) {
                       return "E-mail is not valid";
                     } else {

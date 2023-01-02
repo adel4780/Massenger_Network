@@ -75,14 +75,14 @@ class _SingUpScreenState extends State<SingUpScreen> {
                 formkey.currentState!.save();
                 // Erfan
                 // use email, phone, password for sign up
-                Map<String,String> message ={
+               /* Map<String,String> message ={
                   "email": email.toString(),
                   "phone": phoneValue.toString(),
                   "password": passwordValue.toString(),
                 };
                 SocketService.setReceiverID("Server");
                 SocketService.sendMessage("SignUp",message.toString());
-                Navigator.of(context).pushNamed("/home");
+                */Navigator.of(context).pushNamed("/home");
               }
 
               },

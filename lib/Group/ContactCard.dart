@@ -14,7 +14,7 @@ class ContactCard extends StatelessWidget {
           children: [
             CircleAvatar(
               radius: 23,
-              backgroundImage: NetworkImage(contact.avatarUrl),
+              backgroundImage: AssetImage(contact.avatarUrl),
             ),
             if (contact.select == true)
                const Positioned(

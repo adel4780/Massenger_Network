@@ -43,7 +43,7 @@ class SearchScreen extends SearchDelegate{
               },
               child: ListTile(
                 leading: CircleAvatar(
-                  backgroundImage: NetworkImage(matchQuery[index].avatarUrl), // عکس پروفایل تغییر بده
+                  backgroundImage: AssetImage(matchQuery[index].avatarUrl), // عکس پروفایل تغییر بده
                   backgroundColor: Colors.grey,
                 ),
                 title: Row(
@@ -86,7 +86,7 @@ class SearchScreen extends SearchDelegate{
               },
               child: ListTile(
                 leading: CircleAvatar(
-                  backgroundImage: NetworkImage(matchQuery[index].avatarUrl), // عکس پروفایل تغییر بده
+                  backgroundImage: AssetImage(matchQuery[index].avatarUrl), // عکس پروفایل تغییر بده
                   backgroundColor: Colors.grey,
                 ),
                 title: Row(

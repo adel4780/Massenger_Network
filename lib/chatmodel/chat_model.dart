@@ -28,7 +28,7 @@ List<ChatModel> dummyData = [
       message: "Hello",
       time: "15:20",
       avatarUrl:
-          "https://www.daneshjooyar.com/wp-content/themes/daneshlight/Images/man-with-laptop.png",
+          "img/person.png",
   ),
   ChatModel(
       id: 1000,
@@ -36,7 +36,7 @@ List<ChatModel> dummyData = [
       message: "Salam",
       time: "14:30",
       avatarUrl:
-          "https://www.daneshjooyar.com/wp-content/themes/daneshlight/Images/man-with-laptop.png",
+      "img/person.png",
   ),
   ChatModel(
       id: 1000,
@@ -44,7 +44,7 @@ List<ChatModel> dummyData = [
       message: "Hola",
       time: "10:45",
       avatarUrl:
-          "https://www.daneshjooyar.com/wp-content/themes/daneshlight/Images/man-with-laptop.png",
+      "img/person.png",
   ),
   // -> ChatScreen
 ];
