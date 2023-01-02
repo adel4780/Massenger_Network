@@ -12,10 +12,19 @@ class SingUpScreen extends StatefulWidget {
 class _SingUpScreenState extends State<SingUpScreen> {
   final formkey = GlobalKey<FormState>();
   final scaffoldkey = GlobalKey<FormState>();
-  late String userName;
-  late String emailValue;
-  late String passwordValue;
-  late String phoneNumberValue;
+  late String? email;
+  late String? phoneValue;
+  late String? passwordValue;
+  emailOnSaved(String? value){
+    email = value;
+  }
+  phoneOnSaved(String? value){
+    phoneValue = value;
+  }
+  passwordOnSaved(String? value){
+    passwordValue = value;
+  }
+
   @override
   Widget build(BuildContext context) {
     var page = MediaQuery.of(context).size;
@@ -54,22 +63,28 @@ class _SingUpScreenState extends State<SingUpScreen> {
               children: [
                 FormSignUpContainer(
                   formkey: formkey,
+                  emailOnSaved: emailOnSaved,
+                  phoneOnSaved: phoneOnSaved,
+                  passwordOnSaved: passwordOnSaved,
                 ),
               ],
             ),
             GestureDetector(
               onTap: () async {
-                emailValue="e@e.com";
-                passwordValue="1234";
-                phoneNumberValue="0987";
+              if(formkey.currentState!.validate()){
+                formkey.currentState!.save();
+                // Erfan
+                // use email, phone, password for sign up
                 Map<String,String> message ={
-                  "email": emailValue,
-                  "password": passwordValue,
-                "phone": phoneNumberValue};
-                //adel etelaat set nashode :'(
+                  "email": email.toString(),
+                  "phone": phoneValue.toString(),
+                  "password": passwordValue.toString(),
+                };
                 SocketService.setReceiverID("Server");
                 SocketService.sendMessage("SignUp",message.toString());
                 Navigator.of(context).pushNamed("/home");
+              }
+
               },
               child: Container(
                 margin: const EdgeInsets.only(bottom: 30),

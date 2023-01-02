@@ -4,11 +4,13 @@ import 'package:validators/validators.dart';
 
 class FormSignUpContainer extends StatelessWidget {
   final formkey;
-
+  final  emailOnSaved;
+  final  phoneOnSaved;
+  final passwordOnSaved;
   const FormSignUpContainer({
     super.key,
-    required this.formkey,
-    required,
+    required this.formkey, required this.emailOnSaved, required this.phoneOnSaved,required this.passwordOnSaved,
+
   });
   @override
   Widget build(BuildContext context) {
@@ -24,7 +26,7 @@ class FormSignUpContainer extends StatelessWidget {
                 InputFieldArea(
                   hint: 'e-mail',
                   obscure: false,
-                  icon: Icons.person_outline,
+                  icon: Icons.mail,
                   validator: (value) {
                     // mistake درستش کن
                     if (!isEmail(value!)) {
@@ -33,6 +35,7 @@ class FormSignUpContainer extends StatelessWidget {
                       return null;
                     }
                   },
+                  onSaved: emailOnSaved,
                 ),
                 InputFieldArea(
                   hint: 'Phone: 09...',
@@ -40,12 +43,13 @@ class FormSignUpContainer extends StatelessWidget {
                   icon: Icons.phone,
                   validator: (value) {
                     // mistake درستش کن
-                    if (value!.toString().length < 11) {
-                      return "Phone = 11 character";
-                    } else {
-                      return null;
+                    if(value!.isEmpty){
+                      return "Please Enter a Phone Number";
+                    }else if(!RegExp(r'^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$').hasMatch(value)){
+                      return "Please Enter a Valid Phone Number";
                     }
                   },
+                  onSaved: phoneOnSaved,
                 ),
                 InputFieldArea(
                   hint: 'password',
@@ -59,6 +63,7 @@ class FormSignUpContainer extends StatelessWidget {
                       return null;
                     }
                   },
+                  onSaved: passwordOnSaved,
                 ),
               ],
             ),

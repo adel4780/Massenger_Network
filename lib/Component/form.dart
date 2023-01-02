@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:massenger/Component/inputfields.dart';
-import 'package:validators/validators.dart';
 
 class FormLoginContainer extends StatelessWidget {
   final formkey;
-  const FormLoginContainer({super.key, required this.formkey});
+  final  phoneOnSaved;
+  final passwordOnSaved;
+  FormLoginContainer({super.key, required this.formkey, required this.phoneOnSaved, required this.passwordOnSaved});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -17,22 +18,22 @@ class FormLoginContainer extends StatelessWidget {
             child: Column(
               children: [
                 InputFieldArea(
-                  hint: 'e-mail', // Phone
+                  hint: 'Phone: 09...', // Phone
                   obscure: false,
-                  icon: Icons.person_outline,
+                  icon: Icons.call,
                   validator: (value) {
-                    // mistake درستش کن
-                    if (!isEmail(value!)) {
-                      return "E-mail is not valid";
-                    } else {
-                      return null;
+                    if(value!.isEmpty){
+                      return "Please Enter a Phone Number";
+                    }else if(!RegExp(r'^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$').hasMatch(value)){
+                      return "Please Enter a Valid Phone Number";
                     }
                   },
+                  onSaved : phoneOnSaved
                 ),
                 InputFieldArea(
                   hint: 'password',
                   obscure: true,
-                  icon: Icons.lock,
+                  icon: Icons.key,
                   validator: (value) {
                     if (value!.toString().length < 5) {
                       // mistake
@@ -41,6 +42,7 @@ class FormLoginContainer extends StatelessWidget {
                       return null;
                     }
                   },
+                  onSaved : passwordOnSaved
                 ),
               ],
             ),

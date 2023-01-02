@@ -5,15 +5,14 @@ class InputFieldArea extends StatelessWidget {
   final bool obscure;
   final IconData icon;
   final String? Function(String?) validator;
-
-  late TextEditingController email = TextEditingController();
-  late TextEditingController pass = TextEditingController();
+  final onSaved;
   InputFieldArea({
     super.key,
     required this.hint,
     required this.obscure,
     required this.icon,
     required this.validator,
+    required this.onSaved,
   });
   @override
   Widget build(BuildContext context) {
@@ -21,6 +20,7 @@ class InputFieldArea extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 10),
       child: TextFormField(
         validator: validator,
+        onSaved: this.onSaved,
         obscureText: obscure,
         style: const TextStyle(
           color: Colors.white,

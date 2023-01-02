@@ -1,14 +1,7 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:massenger/massenger_home.dart';
-import 'package:massenger/chatmodel/chat_model.dart';
 import '../Component/form.dart';
-import 'package:http/http.dart' as http;
 import 'package:massenger/Pages/sign_up.dart';
-
 import '../services/socket_service.dart';
-
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -19,8 +12,14 @@ class LoginScreen extends StatefulWidget {
 class Login extends State<LoginScreen> {
   final formkey = GlobalKey<FormState>();
   final scaffoldkey = GlobalKey<FormState>();
-  late String emailValue;
-  late String passwordValue;
+  late String? phoneValue;
+  late String? passwordValue;
+  phoneOnSaved(String? value){
+    phoneValue = value;
+  }
+  passwordOnSaved(String? value){
+    passwordValue = value;
+  }
   @override
   void initState() {
     super.initState();
@@ -64,6 +63,8 @@ class Login extends State<LoginScreen> {
               children: [
                 FormLoginContainer(
                   formkey: formkey,
+                  phoneOnSaved : phoneOnSaved,
+                  passwordOnSaved : passwordOnSaved,
                 ),
                 ElevatedButton(
                   onPressed: () {
@@ -86,15 +87,18 @@ class Login extends State<LoginScreen> {
             ),
             GestureDetector(
               onTap: () async {
-                emailValue="e@e.com";
-                passwordValue="1234";
-                Map<String,String> message ={
-                 "email": emailValue,
-                 "password": passwordValue};
-                //adel etelaat set nashode :'(
-                SocketService.setReceiverID("Server");
-                SocketService.sendMessage("LogIn",message.toString());
-                Navigator.of(context).pushNamed("/home");
+                if(formkey.currentState!.validate()){
+                  formkey.currentState!.save();
+                  // Erfan
+                  // use phoneValue, password and Login with Server
+                  Map<String,String> message ={
+                    "phone": phoneValue.toString(),
+                    "password": passwordValue.toString(),
+                  };
+                  SocketService.setReceiverID("Server");
+                  SocketService.sendMessage("LogIn",message.toString());
+                  Navigator.of(context).pushNamed("/home");
+                }
               },
               child: Container(
                 margin: const EdgeInsets.only(bottom: 30),
