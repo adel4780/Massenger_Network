@@ -32,7 +32,6 @@ class ProfileWidget extends StatelessWidget {
 
   Widget buildImage() {
     final image = imagePath;
-
     return ClipOval(
       child: GestureDetector(
         child: Image.asset(
@@ -53,7 +52,7 @@ class ProfileWidget extends StatelessWidget {
           color: color,
           all: 8,
           child: Icon(
-            isEdit ? Icons.add_a_photo : Icons.edit,
+            Icons.add_a_photo,
             color: Colors.white,
             size: 20,
           ),

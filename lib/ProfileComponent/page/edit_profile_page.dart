@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:massenger/ProfileComponent/model/user.dart';
 import 'package:massenger/ProfileComponent/widget/appbar_widget.dart';
 import 'package:massenger/ProfileComponent/widget/button_widget.dart';
@@ -18,6 +19,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
   late TextEditingController passwordController= TextEditingController(text: user.password);
   final formkey = GlobalKey<FormState>();
   final scaffoldkey = GlobalKey<FormState>();
+  late XFile? imageFile;
+  final ImagePicker picker = ImagePicker();
   @override
   Widget build(BuildContext context) =>
       Builder(
@@ -32,9 +35,11 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     ProfileWidget(
                       imagePath: user.imagePath,
                       isEdit: true,
-                      //Erfan Choose profile Picture
                       onClicked: () async {
-                        //Choose Profile picture from User
+                        showModalBottomSheet(
+                            context: context,
+                            builder: (builder) => bottomsheet()
+                        );
                       /*  var message;
                         SocketService.setReceiverID("Server");
                         SocketService.sendMessage("SetProfile",message);
@@ -122,4 +127,54 @@ class _EditProfilePageState extends State<EditProfilePage> {
       }
     },
   );
+  Widget bottomsheet(){
+    return Container(
+      height: 100,
+      width: MediaQuery.of(context).size.width,
+      margin: EdgeInsets.symmetric(
+        horizontal: 20,
+        vertical: 20,
+      ),
+      child: Column(
+        children: [
+          Text("Choose Profile photo", style: TextStyle(fontSize: 20),),
+          SizedBox(height: 20,),
+          Row(
+            children: [
+              Expanded(
+                child:TextButton.icon(
+                  onPressed: (){
+                    takePhoto(ImageSource.camera);
+                  },
+
+                  icon: Icon(Icons.camera_alt, color: Colors.blue),
+                  label: Text("Camera", textAlign: TextAlign.center),
+
+                ),
+              ),
+              Expanded (
+                child: TextButton.icon(
+                  onPressed: (){
+                    takePhoto(ImageSource.gallery);
+                  },
+                  icon: Icon(Icons.image, color: Colors.blue),
+                  label: Text("Gallery"),
+
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+  void takePhoto(ImageSource source) async {
+    final XFile? pickFile = await picker.pickImage(source: source);
+    setState(() {
+      imageFile = pickFile;
+      user.imagePath = pickFile!.path.toString();
+      // رشته ی آدرس عکس رو بگیر و جایگزین کن
+    });
+  }
 }
+

@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:massenger/ProfileComponent/page/profile_page.dart';
+import '../chat/chatBody.dart';
+import '../chat/chat_text_input.dart';
+import '../chat/user_list_view.dart';
 import '../chatmodel/chat_model.dart';
 import '../services/socket_service.dart';
+import 'package:massenger/socket_service.dart';
 class SingleChatScreen extends StatefulWidget {
   final ChatModel data ;
   final int idx;
@@ -20,10 +24,6 @@ class _SingleChatScreen extends State<SingleChatScreen> {
     super.initState();
     // TODO: implement initState
     textController = TextEditingController();
-
-    // Erfan
-    // UserID bara inke mak payam midam ya on payam mide
-    // adel userid niaz nis socket id has
   }
   @override
   void dispose(){
@@ -77,77 +77,10 @@ class _SingleChatScreen extends State<SingleChatScreen> {
               ),
             ),
           ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 10,left: 10,top: 10),
-                  child: ListView.builder(
-                      itemCount: widget.data.messages.length,
-                      itemBuilder: (BuildContext context, int index){
-                        return Container(
-                          margin: const EdgeInsets.only(bottom: 5),
-                          padding: const EdgeInsets.only(top: 5, bottom: 5, left: 10, right: 10),
-                          decoration: BoxDecoration(
-                            // UserID bara inke mak payam midam ya on payam mide
-                              color: userId == widget.data.id
-                                  ? Colors.blueAccent
-                                  : Colors.white
-                          ),
-                          child: Row(
-                            children: [
-                              for(var i in widget.data.messages.values)
-                              Text(i),
-                            ],
-                          ),
-                        );
-                      }
-                  ),
-                ),
-              ),
-              Container(
-                decoration: const BoxDecoration(
-                  color: Colors.white,
-                ),
-                child: Row(
-                  children: [
-                    IconButton(
-                      onPressed: () {
-
-                      },
-                      icon: const Icon(Icons.attachment_outlined),
-                    ),
-                    Expanded(
-                      child: TextField(
-                        controller: textController,
-                        decoration: const InputDecoration(
-                          hintText: "type",
-                          border: InputBorder.none,
-                        ),
-                      ),
-                    ),
-                    IconButton(
-                      onPressed: () {
-                        var message = textController.text;
-                        if (message.isEmpty) return;
-                      //  SocketService.setReceiverID("null");//adel be ki befreste? be Taraf ba Id ke dadim behesh
-                      //  SocketService.sendMessage("PV",message);
-                        setState(() {
-                          widget.data.messages.addAll({"10:55":message});
-                          textController.text = '';
-                          //Erfan Time ro befrest az Server
-                          }
-                        );
-                        focusCode.requestFocus();//ADEL bara bastan kiborde mobile harja niaz bood bezan inja albate nemikhad fek konam
-                      },
-                      icon: const Icon(Icons.send),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
+          UserListView(),
+          ChatBody(),
+          SizedBox(height: 6),
+          ChatTextInput(),
         ],
       ),
     );
