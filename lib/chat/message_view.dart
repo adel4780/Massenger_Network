@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:massenger/service/socket_service.dart';
-import 'package:massenger/chat/chat.dart';
+
+import '../model/chat.dart';
+import '../services/socket_service.dart';
+
 class MessageView extends StatelessWidget {
   final Chat chat;
   MessageView({Key? key, required this.chat}) : super(key: key);
@@ -36,7 +38,7 @@ class MessageView extends StatelessWidget {
               isSendByUser ? CrossAxisAlignment.end : CrossAxisAlignment.start,
           children: [
             Text(
-              (chat.userName ?? ''),
+              (chat.senderID ?? ''),
               style: const TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 4),

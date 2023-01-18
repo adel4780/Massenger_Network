@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:massenger/service/socket_service.dart';
+
+import '../services/socket_service.dart';
+
 
 class ChatTextInput extends StatelessWidget {
   const ChatTextInput({Key? key}) : super(key: key);
@@ -12,7 +14,7 @@ class ChatTextInput extends StatelessWidget {
       //Erfan Socket
       var message = textController.text;
       if (message.isEmpty) return;
-      SocketService.sendMessage(message);
+      SocketService.sendMessage("txtMsg",message);
       textController.text = '';
       focusCode.requestFocus();
     }

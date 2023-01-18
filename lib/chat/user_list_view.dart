@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:massenger/service/socket_service.dart';
+
+import '../services/socket_service.dart';
 
 class UserListView extends StatelessWidget {
   const UserListView({Key? key}) : super(key: key);

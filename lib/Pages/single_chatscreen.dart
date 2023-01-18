@@ -5,7 +5,6 @@ import '../chat/chat_text_input.dart';
 import '../chat/user_list_view.dart';
 import '../chatmodel/chat_model.dart';
 import '../services/socket_service.dart';
-import 'package:massenger/socket_service.dart';
 class SingleChatScreen extends StatefulWidget {
   final ChatModel data ;
   final int idx;

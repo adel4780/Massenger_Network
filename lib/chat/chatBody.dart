@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:massenger/socket_service.dart';
-import 'package:massenger/chat/chat.dart';
+import '../model/chat.dart';
+import '../services/socket_service.dart';
 import 'message_view.dart';
 class ChatBody extends StatelessWidget {
   const ChatBody({Key? key}) : super(key: key);
