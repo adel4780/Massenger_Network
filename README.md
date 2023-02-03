@@ -1,7 +1,7 @@
 # Massenger_Network
 This is a incomplate Messenger application with socket programming.<br />
 
-It has four part: <br />
+It has 3 parts: <br />
 client <br />
 Server<br />
 DataBase<br />
