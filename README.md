@@ -2,12 +2,11 @@
 This is a incomplate Messenger application with socket programming.<br />
 
 It has four part: <br />
-front-end <br />
-Back-end<br />
+client <br />
 Server<br />
 DataBase<br />
 
-**unfortunately, we complete its front-end part and other parts are not completed.<br />**
+**unfortunately, we complete its front-end part of client and other parts are not fully completed.<br />**
 
 The feathers of this app are :<br />
 1- Login and sign up with phone number, email, password and validation of those.<br />
