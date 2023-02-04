@@ -15,6 +15,7 @@ The feathers of this app are :<br />
 5- Create group and channel with contacts.<br />
 6- Edit your profile and choose profile image.<br />
 ## Preview
+<img src="https://user-images.githubusercontent.com/75057732/216731630-c3467dc6-d300-4b21-822e-d8b6f1b0a02e.png" width="200">
 ![1](https://user-images.githubusercontent.com/75057732/216731630-c3467dc6-d300-4b21-822e-d8b6f1b0a02e.png)
 ![2](https://user-images.githubusercontent.com/75057732/216731644-a8e0d22a-cfac-4d76-b3f1-e42e3b17e4d9.png)
 ![3](https://user-images.githubusercontent.com/75057732/216731660-f3ae7679-9092-4b65-ad1d-edccaa97413d.png)
